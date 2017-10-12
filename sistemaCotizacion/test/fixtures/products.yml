@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyString
+  material_type: one
+  construction_type: one
+
+two:
+  name: MyString
+  description: MyString
+  material_type: two
+  construction_type: two
