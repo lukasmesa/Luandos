@@ -3,11 +3,15 @@
 one:
   name: MyString
   description: MyString
+  quantity: 1
   value: 1
   activity_type: one
+  construction_type: one
 
 two:
   name: MyString
   description: MyString
+  quantity: 1
   value: 1
   activity_type: two
+  construction_type: two
