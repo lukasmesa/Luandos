@@ -18,11 +18,14 @@ ActiveRecord::Schema.define(version: 20171012212032) do
   create_table "activities", force: :cascade do |t|
     t.string "name", limit: 50
     t.string "description", limit: 200
+    t.integer "quantity"
     t.integer "value"
     t.bigint "activity_type_id"
+    t.bigint "construction_type_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["activity_type_id"], name: "index_activities_on_activity_type_id"
+    t.index ["construction_type_id"], name: "index_activities_on_construction_type_id"
   end
 
   create_table "activity_types", force: :cascade do |t|
@@ -87,6 +90,7 @@ ActiveRecord::Schema.define(version: 20171012212032) do
   end
 
   create_table "quotations", force: :cascade do |t|
+    t.string "name", limit: 50
     t.bigint "client_id"
     t.bigint "adviser_id"
     t.date "date"
@@ -107,6 +111,7 @@ ActiveRecord::Schema.define(version: 20171012212032) do
   end
 
   add_foreign_key "activities", "activity_types"
+  add_foreign_key "activities", "construction_types"
   add_foreign_key "articles", "products"
   add_foreign_key "articles", "quotations"
   add_foreign_key "products", "construction_types"
