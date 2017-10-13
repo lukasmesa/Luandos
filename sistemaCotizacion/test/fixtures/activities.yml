@@ -3,9 +3,11 @@
 one:
   name: MyString
   description: MyString
+  value: 1
   activity_type: one
 
 two:
   name: MyString
   description: MyString
+  value: 1
   activity_type: two
