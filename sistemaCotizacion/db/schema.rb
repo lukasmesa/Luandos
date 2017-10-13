@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20171012212032) do
   create_table "activities", force: :cascade do |t|
     t.string "name", limit: 50
     t.string "description", limit: 200
+    t.integer "value"
     t.bigint "activity_type_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
