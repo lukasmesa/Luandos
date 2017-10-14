@@ -19,7 +19,8 @@ ActiveRecord::Schema.define(version: 20171012212032) do
     t.string "name", limit: 50
     t.string "description", limit: 200
     t.integer "quantity"
-    t.integer "value"
+    t.integer "unit_value"
+    t.integer "value_meter"
     t.bigint "activity_type_id"
     t.bigint "construction_type_id"
     t.datetime "created_at", null: false
