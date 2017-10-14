@@ -1,2 +1,238 @@
-<h1>Sistema de cotizaci&oacute;n</h1>
-<button class="btn btn-primary">hola</button>
+        <div class="container" >
+    					<div class="row">
+    						<div class="col-md-4">
+    							<h1>Medidas para la Construccion</h1>
+    							<div>
+    								<div class="card" style="width: 20rem;">
+                                       <img class="card-img-top" src="#" alt="Card image cap">
+                                       <div class="card-body">
+                                         <h4 class="card-title">Tu construccion</h4>
+                                         <p class="card-text">Visualiza aqui tu proyecto</p>
+                                     </div>
+                                 </div>
+                             </div>				
+                         </div>
+                         <div class="col-md-4">
+                           <div class="card border-success mb-3" style="max-width: 20rem;">
+                             <div class="card-body text-success">
+                               <div>
+                                <form class="form-inline my-2 my-lg-0">
+                                  <p></p>>Presupuesto Disponible</h2>	
+
+                                  <div class="input-group">
+                                      <span class="input-group-addon">$</span>
+                                      <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                                      <span class="input-group-addon">.00</span>
+                                  </div>
+
+                              </div>
+                          </div>
+                          <div class="card-footer bg-transparent border-success"><label for="basic-url">¿Desea incluir los servicios de instalacion?</label>	
+                            <div class="container">
+                              <input type="checkbox" name="instalacion" value="Bike"> SI <br>
+
+                          </div>
+                      </div>
+                      <div class="card-footer bg-transparent border-success"><label for="basic-url">Estado de la obra</label>   
+                        <div class="container">
+                          <input type="checkbox" name="obra-Negra" value="Bike"> Obra Negra<br>
+                          <input type="checkbox" name="obra-Blanca" value="Car"> Obra Blanca<br>
+
+                      </div>
+                  </div>
+              </div>
+              <button type="button" class="btn btn-dark">GENERAR COTIZACION</button>
+          </div>
+          <div class="col-md-4">
+          <div class="col-xs-12">
+            <label > Tipo de Construccion:  </label>
+            <select class="btn btn-dark" name="tipo" id="tipoconstruccion">
+                <option value="baño"> Baño</option>
+                <option value="cocina"> Cocina</option>
+                    
+               </select> </div>
+           <br>
+            <div class="card border-success mb-3" style="max-width: 20rem;">
+              <div class="card-footer bg-transparent border-success"><label for="basic-url">Dimensiones del piso</label> 
+                <div class="container">
+                  <input type="text" name="anchoPiso" value=""> Ancho<br>
+                  <input type="text" name="largoPiso" value=""> Largo<br>
+              </div>
+          </div>
+          <div class="card-footer bg-transparent border-success"><label for="basic-url">Dimensiones de la pared</label>  
+            <div class="container">
+              <input type="text" name="anchoPared" value=""> Ancho<br>
+              <input type="text" name="largoPared" value=""> Largo<br>
+              <input type="checkbox" name="pisoParedIgual" value="Bike"> igual a piso<br>
+
+          </div>
+      </div>
+      <div class="card-footer bg-transparent border-success">
+        <label for="basic-url">Dimensiones del techo</label>    
+        <div class="container">
+            <input type="text" name="anchoTecho" value=""> Ancho<br>
+            <input type="text" name="largoTecho" value=""> Largo<br>
+
+        </div>
+    </div>
+</div>
+</div>
+</form>
+</div>
+
+<!-- $$$$$$$$$$$$$$$$$$$$$   hasta aca container formulario   $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ -->
+<hr>
+<div class="container">
+    <!-- $$$$$$$$$$$$$$$$$$$$$   Container de la imagen y desgloce cotizacion   $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ -->
+    <div class="row" >
+        <div class="col-md-4" align="left">
+
+            <%= image_tag "BañoIMGBASE.jpg" %>
+
+        </div>
+        <div class="col-md-4" align="center">
+            
+        </div>
+    <div class="col-md-4" align="right">
+        <table class="table table-bordered table-inverse">
+              <thead>
+                <tr>
+                  <th>Identificador</th>
+                  <th>Descripcion Producto</th>
+                  <th>Cantidad</th>
+              </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td></td>
+              <td></td>
+              <td></td>
+          </tr>
+          <tr>
+              <th scope="row">2</th>
+              <td></td>
+              <td></td>
+              <td></td>
+          </tr>
+          <tr>
+              <th scope="row">3</th>
+              <td></td>
+              <td></td>
+              <td></td>
+          </tr>
+          <tr>
+              <th scope="row">4</th>
+              <td></td>
+              <td></td>
+          </tr>
+      </tbody>
+  </table>
+
+</div>    
+
+
+</div>
+
+
+
+</div>
+<hr>
+<div>
+    <footer>
+        <div class="container" >
+            <div class="row">
+             <div class="col-md-2" >
+                <p><small>Nuestros Productos
+                    <ul class="footer-link">
+                        <li><a href="http://www.corona.co/tu-solucion/productos/banos" title="Baños">Baños</a></li>
+                        <li><a href="http://www.corona.co/tu-solucion/productos/cocinas" title="Cocinas">Cocinas</a></li>
+                        <li><a href="http://www.corona.co/tu-solucion/productos/exteriores" title="Exteriores">Exteriores</a></li>
+                        <li><a href="http://www.corona.co/tu-solucion/productos/otras-areas" title="Otras Áreas">Otras Áreas</a></li>
+                        <li><a href="http://www.corona.co/tu-solucion/productos/materiales-de-construccion" title="Materiales">Materiales</a></li>
+                        <li><a href="http://www.corona.co/tu-solucion/productos/vajillas" title="Vajillas">Vajillas</a></li>
+                    </ul>
+                </small></p>
+            </div> 
+            <div class="col-md-2" >
+                <p><small>Nuestra Empresa
+                    <ul class="footer-link">
+                        <li><a href="nuestra-empresa/quienes-somos/perfil-corporativo" title="Quienes Somos" >Qui&eacute;nes Somos</a></li>
+                        <li><a href="nuestra-empresa/corona-sostenible" title="Corona Sostenible">Corona Sostenible</a></li>
+                        <li><a href="nuestra-empresa/premio-corona" title="Premio Corona">Premio Corona Pro<br> H&aacute;bitat </a></li>
+                        <li><a href="nuestra-empresa/sala-de-prensa/comunicados" title="Sala de Prensa">Sala de Prensa</a></li>
+                        <!--                                <li><a href="nuestra-empresa/app-arquitectura" title="Aplicación de Arquitectura">Revista Arquitectura</a></li>-->
+                        <li><a target="_blank" href="http://www.corona.co/empleo" title="Trabaja con Nosotros">Trabaja con Nosotros</a></li>
+                        <li><a href="nuestra-empresa/fundacion-corona" title="Fundación Corona">Fundación Corona</a></li>
+                    </ul>
+                </small></p>
+
+            </div> 
+            <div class="col-md-2">
+               <p ><small>Zona Expertos
+                <ul class="footer-link">
+                    <li><a href="profesionales/arquitectos" title="Arquitectos">Arquitectos</a></li>
+                    <li><a href="profesionales/maestros" title="Maestros de obra">Maestros de obra</a></li>
+                    <li><a href="profesionales/disenadores-de-interiores" title="Dise&ntilde;adores de interiores">Dise&ntilde;adores de <br> interiores</a></li>
+                    <li><a href="profesionales/restauranteros" title="Restauranteros">Restauranteros</a></li>
+                    <li><a href="profesionales/almacenes" title="Hipercentro y Tienda Cer&aacute;mica">Hipercentro y Tienda <br> Cer&aacute;mica</a></li>
+                </ul>
+            </small></p>
+
+        </div> 
+        <div class="col-md-2">
+         <p><small>BLOG
+            <ul class="footer-link">
+                <li><a href="blogs/estilo-para-la-mesa" title="Estilo para la Mesa">Estilo para la Mesa</a></li>
+                <li><a target="_blank" href="http://blogarquitectura.corona.co" title="Arquitectura">Arquitectura</a></li>
+            </ul>
+        </small></p>
+    </div>
+
+    <div class="col-md-2">
+     <p><small>Actualidad Corona
+        <ul class="footer-link">
+            <li><a href="articulos" title="Art&iacute;culos de tu Inter&eacute;s">Art&iacute;culos de tu Inter&eacute;s</a></li>
+            <li><a href="articulos/videos" title="Galería de Videos">Galería de Videos</a></li>
+            <li><a href="catalogos" title="Catálogos Corona">Catálogos Corona</a></li>
+            <li><a href="proveedores" title="Proveedores Corona">Proveedores Corona</a></li>
+            <li><a href="garantias" title="Garantía Corona">Garantía Corona</a></li>
+            <li><a href="https://unoauno.corona.co/login" target="_blank" title="Nuestros Clientes (uno a uno)">Nuestros Clientes<br> (uno a uno)</a></li>
+        </ul>
+    </small></p>
+
+</div>
+<div class="col-md-2">
+ <p><small>Novedades
+    <ul class="footer-link">
+        <li><a href="lanzamientos-y-promos" title="Conoce todas nuestras novedades">Conoce todas<br> nuestras novedades</a></li>
+        <li><a href="blogs/estilo-para-la-mesa" title="Estilo para la Mesa">Estilo para la Mesa</a></li>
+    </ul>
+</small></p>
+</div>
+<div class="col-md-2" >
+    <p><small>&iquest;D&Oacute;NDE COMPRAR?
+        <ul class="footer-link">
+            <li ><a href="donde-comprar" title="Encuentra el punto m&aacute;s cercano">Encuentra el punto<br> m&aacute;s cercano</a></li>
+        </ul>
+    </small></p>
+</div>
+<div class="col-md-4">
+
+</div>
+
+</div>
+</div>
+
+<hr>
+
+<div>
+
+
+</div>
+
+</footer>
+
+</div>
+
+
