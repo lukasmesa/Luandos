@@ -92,6 +92,8 @@ ActiveRecord::Schema.define(version: 20171012212032) do
 
   create_table "quotations", force: :cascade do |t|
     t.string "name", limit: 50
+    t.integer "width"
+    t.integer "length"
     t.bigint "client_id"
     t.bigint "adviser_id"
     t.date "date"
