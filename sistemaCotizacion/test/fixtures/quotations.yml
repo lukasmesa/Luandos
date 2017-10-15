@@ -2,12 +2,16 @@
 
 one:
   name: MyString
+  width: 1
+  length: 1
   client: one
   adviser: one
-  date: 2017-10-13
+  date: 2017-10-14
 
 two:
   name: MyString
+  width: 1
+  length: 1
   client: two
   adviser: two
-  date: 2017-10-13
+  date: 2017-10-14

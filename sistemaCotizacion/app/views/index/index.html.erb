@@ -10,74 +10,110 @@
                                          <p class="card-text">Visualiza aqui tu proyecto</p>
                                      </div>
                                  </div>
-                             </div>				
+                             </div>
                          </div>
                          <div class="col-md-4">
-                           <div class="card border-success mb-3" style="max-width: 20rem;">
-                             <div class="card-body text-success">
-                               <div>
-                                <form class="form-inline my-2 my-lg-0">
-                                  <p></p>>Presupuesto Disponible</h2>	
-
+                           <div class="card border-primary mb-3" style="max-width: 20rem;">
+                            <div class="card-header text-primary">
+                              <h2>Presupuesto Disponible</h2>
+                            </div>
+                             <div class="card-body text-primary">
+                                <%= form_with scope: :quotation, url: quotations_path, class: "form-horizontal form-inline my-2 my-lg-0" do |form| %>
                                   <div class="input-group">
                                       <span class="input-group-addon">$</span>
-                                      <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                                      <%= form.text_field :budget, class: "form-control", 'aria-label': "Amount (to the nearest dollar)", id:"budget"%>
                                       <span class="input-group-addon">.00</span>
                                   </div>
-
+                          </div>
+                          <div class="card-footer bg-transparent border-primary">
+                              <%= form.label :serviceInstall, '¿Desea incluir los servicios de instalación?', class: "form-check-label", id:"labelService" %>
+                              <div class="container">
+                              <div class="row">
+                              <%= form.check_box :service, class: "form-check-input col", id:"service"%>
+                              <%= form.label :Si, class: "form-check-label col", id:"labelService" %>
                               </div>
-                          </div>
-                          <div class="card-footer bg-transparent border-success"><label for="basic-url">¿Desea incluir los servicios de instalacion?</label>	
-                            <div class="container">
-                              <input type="checkbox" name="instalacion" value="Bike"> SI <br>
-
-                          </div>
-                      </div>
-                      <div class="card-footer bg-transparent border-success"><label for="basic-url">Estado de la obra</label>   
+                              <div class="row">
+                                <br>
+                              </div>
+                              </div>
+                              </div>
+                      <div class="card-footer bg-transparent border-primary"><%= form.label :serviceInstall, 'Estado de la obra', class: "form-check-label", id:"labelService" %>
                         <div class="container">
-                          <input type="checkbox" name="obra-Negra" value="Bike"> Obra Negra<br>
-                          <input type="checkbox" name="obra-Blanca" value="Car"> Obra Blanca<br>
-
+                          <div style="visibility:hidden" class="controls">
+                             <%= form.text_field :client_id, value: 1%>
+                           </div>
+                          <div class="row">
+                            <%= form.check_box :obraNegra, class: "form-check-input col", id:"obraNegra"%>
+                            <%= form.label :labelNegra, 'Obra Negra', class: "form-check-label col", id:"labelObraNegra" %>
+                          </div>
+                          <div class="row">
+                            <%= form.check_box :obraBlanca, class: "form-check-input col", id:"obraBlanca"%>
+                            <%= form.label :labelBlanca, 'Obra Blanca', class: "form-check-label col", id:"labelObraBlanca" %>
+                          </div>
+                           <div style="visibility:hidden" class="controls">
+                             <%= form.text_field :adviser_id, value: 1%>
+                           </div>
+                        </div>
                       </div>
-                  </div>
-              </div>
-              <button type="button" class="btn btn-dark">GENERAR COTIZACION</button>
+                      <div class="card-footer bg-transparent border-primary">
+                        <%= form.submit "Generar Cotización", class: "btn btn-dark container-fluid"%>
+                      </div>
+                      </div>
           </div>
           <div class="col-md-4">
           <div class="col-xs-12">
-            <label > Tipo de Construccion:  </label>
-            <select class="btn btn-dark" name="tipo" id="tipoconstruccion">
-                <option value="baño"> Baño</option>
-                <option value="cocina"> Cocina</option>
-                    
-               </select> </div>
-           <br>
-            <div class="card border-success mb-3" style="max-width: 20rem;">
-              <div class="card-footer bg-transparent border-success"><label for="basic-url">Dimensiones del piso</label> 
-                <div class="container">
-                  <input type="text" name="anchoPiso" value=""> Ancho<br>
-                  <input type="text" name="largoPiso" value=""> Largo<br>
+            <div class="card border-primary mb-3" style="max-width: 20rem;">
+              <div class="card-header text-primary">
+                <%= form.label :labelTipoConstruccion, 'Tipo de construcción', id:"labelTipoConstruccion" %>
+                <%= form.select :name, options_for_select([['Baño', 'Baño'], ['Cocina','Cocina']]), {}, {:class => 'custom-select'} %>
               </div>
-          </div>
-          <div class="card-footer bg-transparent border-success"><label for="basic-url">Dimensiones de la pared</label>  
-            <div class="container">
-              <input type="text" name="anchoPared" value=""> Ancho<br>
-              <input type="text" name="largoPared" value=""> Largo<br>
-              <input type="checkbox" name="pisoParedIgual" value="Bike"> igual a piso<br>
-
-          </div>
+              <div class="card-footer bg-transparent border-primary">
+              <%= form.label :dimensionesPiso, 'Dimensiones Del Piso', id:"labelDimPiso" %>
+                <div class="container">
+                          <div class="row input-group">
+                            <%= form.label :labelWidth, 'Ancho', class: "col-4 input-group-addon", id:"labelWidth" %>
+                            <%= form.text_field :width, class: "col-8 form-control", id:"width"%>
+                          </div>
+                          <div class="row input-group">
+                            <%= form.label :labelLength, 'Largo', class: "col-4 input-group-addon", id:"labelLength" %>
+                            <%= form.text_field :length, class: "col-8 form-control", id:"length"%>
+                          </div>
+                </div>
+              </div>
+          <div class="card-footer bg-transparent border-primary">
+            <%= form.label :dimensionesPared, 'Dimensiones De la Pared', id:"labelDimPared" %>
+                <div class="container">
+                          <div class="row input-group">
+                            <%= form.label :labelWidth, 'Ancho', class: "col-4 input-group-addon", id:"labelWidth" %>
+                            <%= form.text_field :widthPared, class: "col-8 form-control", id:"width"%>
+                          </div>
+                          <div class="row input-group">
+                            <%= form.label :labelLength, 'Largo', class: "col-4 input-group-addon", id:"labelLength" %>
+                            <%= form.text_field :lengthPared, class: "col-8 form-control", id:"length"%>
+                          </div>
+                </div>
       </div>
-      <div class="card-footer bg-transparent border-success">
-        <label for="basic-url">Dimensiones del techo</label>    
-        <div class="container">
-            <input type="text" name="anchoTecho" value=""> Ancho<br>
-            <input type="text" name="largoTecho" value=""> Largo<br>
-
-        </div>
+      <div class="card-footer bg-transparent border-primary">
+        <%= form.label :dimensionesPared, 'Dimensiones De la Pared', id:"labelDimPared" %>
+                <div class="container">
+                          <div class="row input-group">
+                            <%= form.label :lblIgualPiso, 'Igual al piso', class: "form-check-label col-10", id:"lblIgualPiso" %>
+                            <%= form.check_box :igualPiso, class: "form-check-input col-2", id:"igualPiso"%>
+                          </div>
+                          <br>
+                          <div class="row input-group">
+                            <%= form.label :labelWidth, 'Ancho', class: "col-4 input-group-addon", id:"labelWidth" %>
+                            <%= form.text_field :widthPared, class: "col-8 form-control", id:"width"%>
+                          </div>
+                          <div class="row input-group">
+                            <%= form.label :labelLength, 'Largo', class: "col-4 input-group-addon", id:"labelLength" %>
+                            <%= form.text_field :lengthPared, class: "col-8 form-control", id:"length"%>
+                          </div>
+                </div>
     </div>
 </div>
 </div>
-</form>
+<% end %>
 </div>
 
 <!-- $$$$$$$$$$$$$$$$$$$$$   hasta aca container formulario   $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ -->
@@ -85,15 +121,15 @@
 <div class="container">
     <!-- $$$$$$$$$$$$$$$$$$$$$   Container de la imagen y desgloce cotizacion   $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ -->
     <div class="row" >
-        <div class="col-md-4" align="left">
+        <div class="col-md-3" align="left">
 
             <%= image_tag "BañoIMGBASE.jpg" %>
 
         </div>
-        <div class="col-md-4" align="center">
-            
+        <div class="col-md-3" align="center">
+
         </div>
-    <div class="col-md-4" align="right">
+    <div class="col-md-6" align="right">
         <table class="table table-bordered table-inverse">
               <thead>
                 <tr>
@@ -129,7 +165,7 @@
       </tbody>
   </table>
 
-</div>    
+</div>
 
 
 </div>
@@ -137,7 +173,10 @@
 
 
 </div>
-<hr>
+<div class="col-md-12">
+  <br>
+  <br>
+</div>
 <div>
     <footer>
         <div class="container" >
@@ -153,7 +192,7 @@
                         <li><a href="http://www.corona.co/tu-solucion/productos/vajillas" title="Vajillas">Vajillas</a></li>
                     </ul>
                 </small></p>
-            </div> 
+            </div>
             <div class="col-md-2" >
                 <p><small>Nuestra Empresa
                     <ul class="footer-link">
@@ -167,7 +206,7 @@
                     </ul>
                 </small></p>
 
-            </div> 
+            </div>
             <div class="col-md-2">
                <p ><small>Zona Expertos
                 <ul class="footer-link">
@@ -179,7 +218,7 @@
                 </ul>
             </small></p>
 
-        </div> 
+        </div>
         <div class="col-md-2">
          <p><small>BLOG
             <ul class="footer-link">

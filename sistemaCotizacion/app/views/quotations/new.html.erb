@@ -1,0 +1,32 @@
+<%= form_with scope: :quotation, url: quotations_path, class: "form-horizontal" do |form| %>
+<div class="control-group col-xs-12">
+  <%= form.label :tipo, class: "control-label" %>
+<%= form.select(:name,
+options_for_select([['Baño', 'Baño'], ['Cocina','Cocina']])) %>
+</div>
+<div class="control-group col-xs-12">
+    <%= form.label :ancho, class: "control-label" %>
+    <div class="controls">
+      <%= form.text_field :width %>
+    </div>
+</div>
+<div class="control-group col-xs-12">
+    <%= form.label :largo, class: "control-label" %>
+    <div class="controls">
+      <%= form.text_field :length %>
+    </div>
+</div>
+<div class="control-group col-xs-12">
+    <%= form.label :cedula, class: "control-label" %>
+    <div class="controls">
+      <%= form.text_field :client_id %>
+    </div>
+    <div style="visibility:hidden" class="controls">
+      <%= form.text_field :adviser_id, value: 1%>
+    </div>
+</div>
+<br>
+<div class="control-group col-xs-12">
+      <%= form.submit :generar, class: "btn btn-primary"%>
+</div>
+<% end %>
