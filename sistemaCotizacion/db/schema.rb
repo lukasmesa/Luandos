@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(version: 20171012212032) do
   create_table "products", force: :cascade do |t|
     t.string "name", limit: 50
     t.string "description", limit: 200
+    t.integer "value"
     t.bigint "material_type_id"
     t.bigint "construction_type_id"
     t.datetime "created_at", null: false
@@ -92,11 +93,11 @@ ActiveRecord::Schema.define(version: 20171012212032) do
 
   create_table "quotations", force: :cascade do |t|
     t.string "name", limit: 50
-    t.integer "width"
-    t.integer "length"
-    t.bigint "client_id"
-    t.bigint "adviser_id"
-    t.date "date"
+    t.decimal "width", precision: 4, scale: 2
+    t.decimal "length", precision: 4, scale: 2
+    t.integer "budget"
+    t.bigint "client_id", default: 1
+    t.bigint "adviser_id", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["adviser_id"], name: "index_quotations_on_adviser_id"
@@ -106,7 +107,6 @@ ActiveRecord::Schema.define(version: 20171012212032) do
   create_table "services", force: :cascade do |t|
     t.bigint "quotation_id"
     t.bigint "activity_id"
-    t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["activity_id"], name: "index_services_on_activity_id"
