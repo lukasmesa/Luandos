@@ -18,7 +18,7 @@
                               <h2>Presupuesto Disponible</h2>
                             </div>
                              <div class="card-body text-primary">
-                                <%= form_with scope: :quotation, url: quotations_path, class: "form-horizontal form-inline my-2 my-lg-0" do |form| %>
+                                <%= form_with model: @quotation, scope: :quotation, url: quotations_path, remote: true, id:"formCotizacion", class: "form-horizontal form-inline my-2 my-lg-0" do |form| %>
                                   <div class="input-group">
                                       <span class="input-group-addon">$</span>
                                       <%= form.text_field :budget, class: "form-control", 'aria-label': "Amount (to the nearest dollar)", id:"budget"%>
@@ -29,30 +29,26 @@
                               <%= form.label :serviceInstall, '¿Desea incluir los servicios de instalación?', class: "form-check-label", id:"labelService" %>
                               <div class="container">
                               <div class="row">
-                              <%= form.check_box :service, class: "form-check-input col", id:"service"%>
-                              <%= form.label :Si, class: "form-check-label col", id:"labelService" %>
+                                <%= form.label :Si, class: "form-check-label col", id:"labelService" %>
+                                <%= form.check_box :service, class: "form-check-input col", id:"service"%>
                               </div>
                               <div class="row">
                                 <br>
+                                <%= link_to 'Change Below', quotation_path(1), remote: true %>
                               </div>
+                              <div id="targetNumber">now you see ME!</div>
                               </div>
                               </div>
                       <div class="card-footer bg-transparent border-primary"><%= form.label :serviceInstall, 'Estado de la obra', class: "form-check-label", id:"labelService" %>
                         <div class="container">
-                          <div style="visibility:hidden" class="controls">
-                             <%= form.text_field :client_id, value: 1%>
-                           </div>
                           <div class="row">
-                            <%= form.check_box :obraNegra, class: "form-check-input col", id:"obraNegra"%>
                             <%= form.label :labelNegra, 'Obra Negra', class: "form-check-label col", id:"labelObraNegra" %>
+                            <%= form.check_box :obraNegra, class: "form-check-input col", id:"obraNegra"%>
                           </div>
                           <div class="row">
-                            <%= form.check_box :obraBlanca, class: "form-check-input col", id:"obraBlanca"%>
                             <%= form.label :labelBlanca, 'Obra Blanca', class: "form-check-label col", id:"labelObraBlanca" %>
+                            <%= form.check_box :obraBlanca, class: "form-check-input col", id:"obraBlanca"%>
                           </div>
-                           <div style="visibility:hidden" class="controls">
-                             <%= form.text_field :adviser_id, value: 1%>
-                           </div>
                         </div>
                       </div>
                       <div class="card-footer bg-transparent border-primary">
@@ -85,16 +81,16 @@
                 <div class="container">
                           <div class="row input-group">
                             <%= form.label :labelWidth, 'Ancho', class: "col-4 input-group-addon", id:"labelWidth" %>
-                            <%= form.text_field :widthPared, class: "col-8 form-control", id:"width"%>
+                            <%= form.text_field :widthPared, class: "col-8 form-control", id:"widthPared"%>
                           </div>
                           <div class="row input-group">
                             <%= form.label :labelLength, 'Largo', class: "col-4 input-group-addon", id:"labelLength" %>
-                            <%= form.text_field :lengthPared, class: "col-8 form-control", id:"length"%>
+                            <%= form.text_field :lengthPared, class: "col-8 form-control", id:"lengthPared"%>
                           </div>
                 </div>
       </div>
       <div class="card-footer bg-transparent border-primary">
-        <%= form.label :dimensionesPared, 'Dimensiones De la Pared', id:"labelDimPared" %>
+        <%= form.label :dimensionesPared, 'Dimensiones Del techo', id:"labelDimPared" %>
                 <div class="container">
                           <div class="row input-group">
                             <%= form.label :lblIgualPiso, 'Igual al piso', class: "form-check-label col-10", id:"lblIgualPiso" %>
@@ -103,12 +99,11 @@
                           <br>
                           <div class="row input-group">
                             <%= form.label :labelWidth, 'Ancho', class: "col-4 input-group-addon", id:"labelWidth" %>
-                            <%= form.text_field :widthPared, class: "col-8 form-control", id:"width"%>
+                            <%= form.text_field :widthTecho, class: "col-8 form-control", id:"widthTecho"%>
                           </div>
                           <div class="row input-group">
                             <%= form.label :labelLength, 'Largo', class: "col-4 input-group-addon", id:"labelLength" %>
-                            <%= form.text_field :lengthPared, class: "col-8 form-control", id:"length"%>
-                          </div>
+                            <%= form.text_field :lengthTecho, class: "col-8 form-control", id:"lengthTecho" %>
                 </div>
     </div>
 </div>
@@ -123,10 +118,9 @@
     <div class="row" >
         <div class="col-md-3" align="left">
 
-            <%= image_tag "BañoIMGBASE.jpg" %>
 
         </div>
-        <div class="col-md-3" align="center">
+        <div class="col-md-3" align="center" id="contenidoCotizacion">
 
         </div>
     <div class="col-md-6" align="right">
