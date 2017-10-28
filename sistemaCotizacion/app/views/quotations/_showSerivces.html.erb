@@ -1,0 +1,7 @@
+<% @quotation.activities.each do |activity| %>
+<tr id="tr_<%= @activity.id%>">
+      <td><%= @activity.name %></td>
+      <td><%= @activity.description %></td>
+      <td><%= @activity.unit_value %></td>
+    <% end %>
+</tr>

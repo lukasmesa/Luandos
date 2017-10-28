@@ -1,56 +1,18 @@
-<% if @quotation.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@quotation.errors.count, "error") %> prohibited
-        this quotation from being saved:
-      </h2>
-      <ul>
-        <% @quotation.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-<p>
-  <strong>Proyecto:</strong>
-  <%= @quotation.name %>
-</p>
-
-<p>
-  <strong>Id:</strong>
-  <%= @quotation.id %>
-</p>
-
-<p>
-  <strong>Ancho:</strong>
-  <%= @quotation.width %>
-</p>
-
-<p>
-  <strong>Largo:</strong>
-  <%= @quotation.length %>
-</p>
-
-<p>
-  <strong>Cliente:</strong>
-  <%= @quotation.client_id%>
-</p>
-
-<h2>activities</h2>
-<% @quotation.activities.each do |activity| %>
-  <p>
-    <strong>id:</strong>
-    <%= activity.id %>
-  </p>
-
-  <p>
-    <strong>name:</strong>
-    <%= activity.name %>
-  </p>
-
-  <p>
-    <strong>Activity Type:</strong>
-    <%= activity.activity_type.name %>
-  </p>
-
-<% end %>
+<table class="table table-responsive" id="tablaCotizacion">
+  <thead>
+    <tr class="bg-primary">
+      <th>Tipo Proyecto</th>
+      <th>Presupuesto</th>
+      <th>Ancho</th>
+      <th>Largo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @quotation.name %></td>
+      <td><%= @quotation.budget %></td>
+      <td><%= @quotation.width %></td>
+      <td><%= @quotation.length %></td>
+    </tr>
+  </tbody>
+</table>

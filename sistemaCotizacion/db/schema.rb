@@ -95,7 +95,7 @@ ActiveRecord::Schema.define(version: 20171012212032) do
     t.string "name", limit: 50
     t.decimal "width", precision: 4, scale: 2
     t.decimal "length", precision: 4, scale: 2
-    t.integer "budget"
+    t.integer "budget", default: 0
     t.bigint "client_id", default: 1
     t.bigint "adviser_id", default: 1
     t.datetime "created_at", null: false

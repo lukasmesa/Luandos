@@ -262,6 +262,9 @@ insert into advisers(first_name, middle_name, first_surname, second_surname, ema
 insert into advisers(first_name, middle_name, first_surname, second_surname, email, phone, created_at, updated_at) values('angie','daniela','chisco','cadavid','angie@hotmail.com',8873560, now(),now());
 insert into advisers(first_name, middle_name, first_surname, second_surname, email, phone, created_at, updated_at) values('luz','anyela','apellido','apellido2','luz@hotmail.com',8882578, now(),now());
 
+
+--Falta la columna de la cedula del cliente
+
 insert into clients(first_name, middle_name, first_surname, second_surname, email, phone, created_at, updated_at) values('web','web','web','web','web@hotmail.com',0000000, now(),now());
 insert into clients(first_name, middle_name, first_surname, second_surname, email, phone, created_at, updated_at) values('jairo','antonio','lopez','ramirez','jairo@hotmail.com',8885790, now(),now());
 insert into clients(first_name, middle_name, first_surname, second_surname, email, phone, created_at, updated_at) values('karla','maria','osorio','mejia','mari@hotmail.com',8467899, now(),now());
@@ -279,9 +282,60 @@ END
 $$
 
 
-SELECT Q.*, S.* FROM SERVICES as S, QUOTATIONS as Q
-WHERE Q.id = S.quotation_id
-AND S.quotation_id = 1
-AND S.activity_id IN (SELECT id FROM ACTIVITIES
-                      WHERE construction_type_id IN (SELECT id FROM CONSTRUCTION_TYPES
-                                                     WHERE UPPER(name) = 'BAÑO'))
+DO $$
+BEGIN
+INSERT INTO material_types(name, created_at, updated_at) VALUES('TITANIO',now(), now());
+INSERT INTO material_types(name, created_at, updated_at) VALUES('ALUMINIO',now(), now());
+INSERT INTO material_types(name, created_at, updated_at) VALUES('PLASTICO',now(), now());
+INSERT INTO material_types(name, created_at, updated_at) VALUES('MADERA',now(), now());
+INSERT INTO material_types(name, created_at, updated_at) VALUES('METAL',now(), now());
+INSERT INTO material_types(name, created_at, updated_at) VALUES('CERAMICA',now(), now());
+INSERT INTO material_types(name, created_at, updated_at) VALUES('VIDRIO',now(), now());
+INSERT INTO material_types(name, created_at, updated_at) VALUES('ACERO',now(), now());
+INSERT INTO material_types(name, created_at, updated_at) VALUES('COBRE',now(), now());
+INSERT INTO material_types(name, created_at, updated_at) VALUES('HIERRO',now(), now());
+INSERT INTO material_types(name, created_at, updated_at) VALUES('FIBRA DE VIDRIO',now(), now());
+INSERT INTO material_types(name, created_at, updated_at) VALUES('BARRO',now(), now());
+INSERT INTO material_types(name, created_at, updated_at) VALUES('CEMENTO',now(), now());
+INSERT INTO material_types(name, created_at, updated_at) VALUES('CAUCHO',now(), now());
+INSERT INTO material_types(name, created_at, updated_at) VALUES('FIBRA DE CARBONO',now(), now());
+
+
+INSERT INTO products(name, description, value, material_type_id, construction_type_id, created_at, updated_at) VALUES
+    (UPPER('Baño premium'),UPPER('Baño ahorrador de agua'),50000, 1, 1,now(), now());
+INSERT INTO products(name, description, value, material_type_id, construction_type_id, created_at, updated_at) VALUES
+    (UPPER('Lavamanos'),UPPER('color azul oscuro'),72028, 2, 1,now(), now());
+INSERT INTO products(name, description, value, material_type_id, construction_type_id, created_at, updated_at) VALUES
+    (UPPER('Ducha'),UPPER('plateada'),17283, 7, 1,now(), now());
+INSERT INTO products(name, description, value, material_type_id, construction_type_id, created_at, updated_at) VALUES
+    (UPPER('Baño sencillo'),UPPER('baño general'),17378, 10, 1,now(), now());
+INSERT INTO products(name, description, value, material_type_id, construction_type_id, created_at, updated_at) VALUES
+    (UPPER('Baño de lujo'),UPPER('Con lavado'),76273, 11, 1,now(), now());
+INSERT INTO products(name, description, value, material_type_id, construction_type_id, created_at, updated_at) VALUES
+    (UPPER('Tina'),UPPER('sencilla balnac'),78880, 14, 1,now(), now());
+INSERT INTO products(name, description, value, material_type_id, construction_type_id, created_at, updated_at) VALUES
+    (UPPER('Combo accesorios'),UPPER('jabonera,toallera,cepillos'),67554, 10, 1,now(), now());
+INSERT INTO products(name, description, value, material_type_id, construction_type_id, created_at, updated_at) VALUES
+    (UPPER('Mueble lavamanos'),UPPER('color miel'),59876, 11, 1,now(), now());
+INSERT INTO products(name, description, value, material_type_id, construction_type_id, created_at, updated_at) VALUES
+    (UPPER('Espejo'),UPPER('espejo cuerpo entero'),572839, 13, 1,now(), now());
+INSERT INTO products(name, description, value, material_type_id, construction_type_id, created_at, updated_at) VALUES
+    (UPPER('Lavamanos caribe'),UPPER('lavamanos niños'),87332, 5, 1,now(), now());
+INSERT INTO products(name, description, value, material_type_id, construction_type_id, created_at, updated_at) VALUES
+    (UPPER('Tina gold'),UPPER('tina hidromasaje termica'),9000, 6, 1,now(), now());
+INSERT INTO products(name, description, value, material_type_id, construction_type_id, created_at, updated_at) VALUES
+    (UPPER('Griferia'),UPPER('griferia de alto impacto'),23000, 8, 1,now(), now());
+INSERT INTO products(name, description, value, material_type_id, construction_type_id, created_at, updated_at) VALUES
+    (UPPER('Bañera hidromasaje'),UPPER('control temperatura'),57990, 3, 1,now(), now());
+INSERT INTO products(name, description, value, material_type_id, construction_type_id, created_at, updated_at) VALUES
+    (UPPER('Sanitario sencillo'),UPPER('sanitario servicio general'),16279, 9, 1,now(), now());
+INSERT INTO products(name, description, value, material_type_id, construction_type_id, created_at, updated_at) VALUES
+    (UPPER('Jabonera lujo'),UPPER('jabonera antirayones'),15276, 10, 1,now(), now());
+INSERT INTO products(name, description, value, material_type_id, construction_type_id, created_at, updated_at) VALUES
+    (UPPER('Baldosa clara'),UPPER('baldosa de 10x20'),57899, 1, 1,now(), now());
+INSERT INTO products(name, description, value, material_type_id, construction_type_id, created_at, updated_at) VALUES
+    (UPPER('Ceramica rumana'),UPPER('ceramica rustica'),45677, 4, 1,now(), now());
+INSERT INTO products(name, description, value, material_type_id, construction_type_id, created_at, updated_at) VALUES
+    (UPPER('Cielo razo'),UPPER('cielo termico'),98643, 5, 1,now(), now());
+END
+$$
