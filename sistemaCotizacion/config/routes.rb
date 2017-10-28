@@ -22,6 +22,13 @@ Rails.application.routes.draw do
     resources :quotations
   end
 
+  resources :products, shallow: true do
+   resources :material_type
+   resources :construction_type
+   resources :articles
+   resources :quotations
+  end
+
   root 'index#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
