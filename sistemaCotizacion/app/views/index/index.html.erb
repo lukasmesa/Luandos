@@ -2,54 +2,54 @@
         <div class="container" >
     					<div class="row">
     						<div class="col-md-4">
-    							<h1>Medidas para la Construccion</h1>
-    								<div class="card" style="width: 20rem;">
-                      <img class="card-img-top" src="#" alt="Card image cap">
-                      <div class="card-body">
-                        <h4 class="card-title">Tu construccion</h4>
-                        <p class="card-text">Visualiza aqui tu proyecto</p>
-                     </div>
+                  <div class="card border-primary mb-3" style="max-width: 20rem;">
+                    <div class="card-header text-primary border-primary">Medidas para la construcci&oacute;n</div>
+                    <div class="card-body text-primary">
+                      <h4 class="card-title">Tu construcci&oacute;n</h4>
+                      <p class="card-text">Visualiza aqu&iacute; tu proyecto</p>
+                      <%= link_to image_tag('BañoIMGBASE.jpg', class: 'rounded img-fluid', alt: 'proyecto base') %>
                     </div>
+                  </div>
                 </div>
                 <div class="col-md-4">
                   <div class="card border-primary mb-3" style="max-width: 20rem;">
-                    <div class="card-header text-center text-primary">
+                    <div class="card-header text-center text-primary border-primary">
                       <h2>Presupuesto Disponible</h2>
                     </div>
                     <div class="card-body text-primary">
                       <%= form_with model: @quotation, scope: :quotation, url: quotations_path, remote: true, id:"formCotizacion", class: "form-horizontal form-inline my-2 my-lg-0" do |form| %>
                       <div class="container">
                         <div class="row input-group">
-                          <span class="input-group-addon">$</span>
+                          <span class="input-group-addon text-primary">$</span>
                           <%= form.text_field :budget, class: "form-control", 'aria-label': "Amount (to the nearest dollar)", id:"budget"%>
                         </div>
                       </div>
                   </div>
                   <div class="card-footer bg-transparent border-primary">
-                    <%= form.label :serviceInstall, '¿Desea incluir los servicios de instalación?', class: "form-check-label", id:"labelService" %>
+                    <%= form.label :serviceInstall, '¿Desea incluir los servicios de instalación?', class: "form-check-label text-primary", id:"labelService" %>
                     <div class="container">
                       <br>
                       <div class="row">
-                        <%= form.label :Si, class: "form-check-label col", id:"labelService" %>
+                        <%= form.label :Si, class: "form-check-label col text-primary", id:"labelService" %>
                         <%= form.check_box :service, class: "form-check-input col", id:"service"%>
                       </div>
                     </div>
                   </div>
-                  <div class="card-footer bg-transparent border-primary"><%= form.label :serviceInstall, 'Estado de la obra', class: "form-check-label", id:"labelService" %>
+                  <div class="card-footer bg-transparent border-primary"><%= form.label :serviceInstall, 'Estado de la obra', class: "form-check-label text-primary", id:"labelService" %>
                     <div class="container">
                       <br>
                       <div class="row">
-                        <%= form.label :labelNegra, 'Obra Negra', class: "form-check-label col", id:"labelObraNegra" %>
-                        <%= form.check_box :obraNegra, class: "form-check-input col", id:"obraNegra"%>
+                        <%= form.label :labelNegra, 'Obra Negra', class: "form-check-label col text-primary", id:"labelObraNegra" %>
+                        <%= form.check_box :obraNegra, class: "form-check-input col", id:"obraNegra"%></label>
                       </div>
                       <div class="row">
-                        <%= form.label :labelBlanca, 'Obra Blanca', class: "form-check-label col", id:"labelObraBlanca" %>
+                        <%= form.label :labelBlanca, 'Obra Blanca', class: "form-check-label col col text-primary", id:"labelObraBlanca" %>
                         <%= form.check_box :obraBlanca, class: "form-check-input col", id:"obraBlanca"%>
                       </div>
                     </div>
                   </div>
                   <div class="card-footer bg-transparent border-primary">
-                    <%= form.submit "Generar Cotización", class: "btn btn-dark container-fluid"%>
+                    <%= form.submit "Generar Cotización", class: "btn btn-primary btn-lg btn-block container-fluid" %>
                   </div>
                 </div>
               </div>
@@ -57,50 +57,51 @@
                 <div class="card border-primary mb-3" style="max-width: 20rem;">
                   <div class="card-header text-primary">
                     <%= form.label :labelTipoConstruccion, 'Tipo de construcción', id:"labelTipoConstruccion" %>
-                    <%= form.select :name, options_for_select([['Baño', 'Baño'], ['Cocina','Cocina']]), {}, {:class => 'custom-select'} %>
+                    <%= form.select :name, options_for_select([['Baño', 'Baño'], ['Cocina','Cocina']]), {}, {:class => 'custom-select text-primary'} %>
                   </div>
                   <div class="card-footer bg-transparent border-primary">
-                    <%= form.label :dimensionesPiso, 'Dimensiones Del Piso', id:"labelDimPiso" %>
+                    <%= form.label :dimensionesPiso, 'Dimensiones Del Piso', class: "form-check-label col col text-primary", id:"labelDimPiso" %>
                     <div class="container">
                     <br>
                     <div class="row input-group">
-                      <%= form.label :labelWidth, 'Ancho', class: "col-4 input-group-addon", id:"labelWidth" %>
+                      <%= form.label :labelWidth, 'Ancho', class: "col-4 input-group-addon text-primary", id:"labelWidth" %>
                       <%= form.text_field :width, class: "col-8 form-control", id:"width"%>
                     </div>
                     <div class="row input-group">
-                      <%= form.label :labelLength, 'Largo', class: "col-4 input-group-addon", id:"labelLength" %>
+                      <%= form.label :labelLength, 'Largo', class: "col-4 input-group-addon text-primary", id:"labelLength" %>
                       <%= form.text_field :length, class: "col-8 form-control", id:"length"%>
                     </div>
                     </div>
                   </div>
                   <div class="card-footer bg-transparent border-primary">
-                    <%= form.label :dimensionesPared, 'Dimensiones De la Pared', id:"labelDimPared" %>
+                    <%= form.label :dimensionesPared, 'Dimensiones De la Pared', class: "form-check-label col col text-primary", id:"labelDimPared" %>
                     <div class="container">
                     <br>
                     <div class="row input-group">
-                      <%= form.label :labelWidth, 'Ancho', class: "col-4 input-group-addon", id:"labelWidth" %>
+                      <%= form.label :labelWidth, 'Ancho', class: "col-4 input-group-addon text-primary", id:"labelWidth" %>
                       <%= form.text_field :widthPared, class: "col-8 form-control", id:"widthPared"%>
                     </div>
                     <div class="row input-group">
-                      <%= form.label :labelLength, 'Largo', class: "col-4 input-group-addon", id:"labelLength" %>
+                      <%= form.label :labelLength, 'Largo', class: "col-4 input-group-addon text-primary", id:"labelLength" %>
                       <%= form.text_field :lengthPared, class: "col-8 form-control", id:"lengthPared"%>
                     </div>
                     </div>
                   </div>
                   <div class="card-footer bg-transparent border-primary">
-                    <%= form.label :dimensionesTecho, 'Dimensiones Del techo', id:"labelDimTecho" %>
+                    <%= form.label :dimensionesTecho, 'Dimensiones Del techo', class: "form-check-label col col text-primary", id:"labelDimTecho" %>
                     <div class="container">
+                      <br>
                       <div class="row">
-                        <%= form.label :lblIgualPiso, 'Igual al piso', class: "form-check-label col", id:"lblIgualPiso" %>
+                        <%= form.label :lblIgualPiso, 'Igual al piso', class: "form-check-label col text-primary", id:"lblIgualPiso" %>
                         <%= form.check_box :igualPiso, class: "form-check-input col", id:"igualPiso"%>
                       </div>
                       <br>
                       <div class="row input-group" id="rowWidthTecho">
-                        <%= form.label :labelWidth, 'Ancho', class: "col-4 input-group-addon", id:"labelWidth" %>
+                        <%= form.label :labelWidth, 'Ancho', class: "col-4 input-group-addon text-primary", id:"labelWidth" %>
                         <%= form.text_field :widthTecho, class: "col-8 form-control", id:"widthTecho"%>
                       </div>
                       <div class="row input-group" id="rowLengthTecho">
-                        <%= form.label :labelLength, 'Largo', class: "col-4 input-group-addon", id:"labelLength" %>
+                        <%= form.label :labelLength, 'Largo', class: "col-4 input-group-addon text-primary", id:"labelLength" %>
                         <%= form.text_field :lengthTecho, class: "col-8 form-control", id:"lengthTecho" %>
                       </div>
                     </div>
@@ -116,14 +117,7 @@
     <div class="row" >
       <div class="container">
         <div class="row">
-          <div class="col-md-3" align="left">
-
-
-        </div>
-        <div class="col-md-3" align="center" id="contenidoCotizacion">
-
-        </div>
-        <div class="col-md-6" align="right">
+        <div class="col-md-12" align="center" id="contenidoCotizacion">
 
         </div>
         </div>
@@ -135,105 +129,6 @@
         </div>
       </div>
     </div>
-
-<div class="row">
-    <footer>
-        <div class="container" >
-            <div class="row">
-             <div class="col-md-2" >
-                <p><small>Nuestros Productos
-                    <ul class="footer-link">
-                        <li><a href="http://www.corona.co/tu-solucion/productos/banos" title="Baños">Baños</a></li>
-                        <li><a href="http://www.corona.co/tu-solucion/productos/cocinas" title="Cocinas">Cocinas</a></li>
-                        <li><a href="http://www.corona.co/tu-solucion/productos/exteriores" title="Exteriores">Exteriores</a></li>
-                        <li><a href="http://www.corona.co/tu-solucion/productos/otras-areas" title="Otras Áreas">Otras Áreas</a></li>
-                        <li><a href="http://www.corona.co/tu-solucion/productos/materiales-de-construccion" title="Materiales">Materiales</a></li>
-                        <li><a href="http://www.corona.co/tu-solucion/productos/vajillas" title="Vajillas">Vajillas</a></li>
-                    </ul>
-                </small></p>
-            </div>
-            <div class="col-md-2" >
-                <p><small>Nuestra Empresa
-                    <ul class="footer-link">
-                        <li><a href="nuestra-empresa/quienes-somos/perfil-corporativo" title="Quienes Somos" >Qui&eacute;nes Somos</a></li>
-                        <li><a href="nuestra-empresa/corona-sostenible" title="Corona Sostenible">Corona Sostenible</a></li>
-                        <li><a href="nuestra-empresa/premio-corona" title="Premio Corona">Premio Corona Pro<br> H&aacute;bitat </a></li>
-                        <li><a href="nuestra-empresa/sala-de-prensa/comunicados" title="Sala de Prensa">Sala de Prensa</a></li>
-                        <li><a target="_blank" href="http://www.corona.co/empleo" title="Trabaja con Nosotros">Trabaja con Nosotros</a></li>
-                        <li><a href="nuestra-empresa/fundacion-corona" title="Fundación Corona">Fundación Corona</a></li>
-                    </ul>
-                </small></p>
-
-            </div>
-            <div class="col-md-2">
-               <p ><small>Zona Expertos
-                <ul class="footer-link">
-                    <li><a href="profesionales/arquitectos" title="Arquitectos">Arquitectos</a></li>
-                    <li><a href="profesionales/maestros" title="Maestros de obra">Maestros de obra</a></li>
-                    <li><a href="profesionales/disenadores-de-interiores" title="Dise&ntilde;adores de interiores">Dise&ntilde;adores de <br> interiores</a></li>
-                    <li><a href="profesionales/restauranteros" title="Restauranteros">Restauranteros</a></li>
-                    <li><a href="profesionales/almacenes" title="Hipercentro y Tienda Cer&aacute;mica">Hipercentro y Tienda <br> Cer&aacute;mica</a></li>
-                </ul>
-            </small></p>
-
-        </div>
-        <div class="col-md-2">
-         <p><small>BLOG
-            <ul class="footer-link">
-                <li><a href="blogs/estilo-para-la-mesa" title="Estilo para la Mesa">Estilo para la Mesa</a></li>
-                <li><a target="_blank" href="http://blogarquitectura.corona.co" title="Arquitectura">Arquitectura</a></li>
-            </ul>
-        </small></p>
-    </div>
-
-    <div class="col-md-2">
-     <p><small>Actualidad Corona
-        <ul class="footer-link">
-            <li><a href="articulos" title="Art&iacute;culos de tu Inter&eacute;s">Art&iacute;culos de tu Inter&eacute;s</a></li>
-            <li><a href="articulos/videos" title="Galería de Videos">Galería de Videos</a></li>
-            <li><a href="catalogos" title="Catálogos Corona">Catálogos Corona</a></li>
-            <li><a href="proveedores" title="Proveedores Corona">Proveedores Corona</a></li>
-            <li><a href="garantias" title="Garantía Corona">Garantía Corona</a></li>
-            <li><a href="https://unoauno.corona.co/login" target="_blank" title="Nuestros Clientes (uno a uno)">Nuestros Clientes<br> (uno a uno)</a></li>
-        </ul>
-    </small></p>
-
-</div>
-<div class="col-md-2">
- <p><small>Novedades
-    <ul class="footer-link">
-        <li><a href="lanzamientos-y-promos" title="Conoce todas nuestras novedades">Conoce todas<br> nuestras novedades</a></li>
-        <li><a href="blogs/estilo-para-la-mesa" title="Estilo para la Mesa">Estilo para la Mesa</a></li>
-    </ul>
-</small></p>
-</div>
-<div class="col-md-2" >
-    <p><small>&iquest;D&Oacute;NDE COMPRAR?
-        <ul class="footer-link">
-            <li ><a href="donde-comprar" title="Encuentra el punto m&aacute;s cercano">Encuentra el punto<br> m&aacute;s cercano</a></li>
-        </ul>
-    </small></p>
-</div>
-<div class="col-md-4">
-
-</div>
-
-</div>
-</div>
-
-<hr>
-
-<div>
-
-
-</div>
-
-</footer>
-
-</div>
-
-
-
 </div>
 
 
