@@ -22,15 +22,27 @@
 
 <h2>Servicios de instalaci&oacute;n</h2>
 
-<table class="table table-responsive" id="tablaCotizacion">
+<table class="table table-hover table-responsive" id="tablaServicios">
+  <thead>
     <tr class="text-primary">
-      <th>Cotizaci&oacute;n</th>
-      <th>Actividad</th>
+      <th>Id</th>
+      <th>Nombre</th>
+      <th>Descripci&oacute;n</th>
     </tr>
-    <% @quotation.services.each do |service| %>
-    <tr>
-      <td><%= @service.quotation_id %></td>
-      <td><%= @service.activity_id %></td>
-    </tr>
-    <% end %>
+  </thead>
+  <tbody>
+<% @quotation.activities.each do |activity| %>
+<tr>
+  <td><%= activity.id %></td>
+
+  <td>
+    <%= activity.name %>
+  </td>
+
+  <td>
+    <%= activity.activity_type.name %>
+  </td>
+</tr>
+</tbody>
+<% end %>
 </table>
