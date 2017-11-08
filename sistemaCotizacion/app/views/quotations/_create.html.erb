@@ -28,6 +28,7 @@
       <th>Id</th>
       <th>Nombre</th>
       <th>Descripci&oacute;n</th>
+      <th>Costo</th>
     </tr>
   </thead>
   <tbody>
@@ -41,6 +42,10 @@
 
   <td>
     <%= activity.activity_type.name %>
+  </td>
+
+  <td>
+    <%= activity.totalValue(@quotation.totalMeters)%>
   </td>
 </tr>
 </tbody>

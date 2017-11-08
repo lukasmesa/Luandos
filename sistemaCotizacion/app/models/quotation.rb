@@ -6,4 +6,8 @@ class Quotation < ApplicationRecord
   has_many :articles
   has_many :products, through: :articles
 
+  def totalMeters
+    (self.width*self.length)
+  end
+
 end
