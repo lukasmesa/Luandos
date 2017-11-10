@@ -1,3 +1,15 @@
+<% if @quotation.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@quotation.errors.count, "error") %> impidieron que se generara la cotizaci&oacute;n
+      </h2>
+      <ul>
+        <% @quotation.errors.full_messages.each do |msg| %>
+          <li class="text-warning"><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 <table class="table table-hover table-responsive" id="tablaCotizacion">
   <thead>
     <tr>
@@ -14,8 +26,8 @@
     <tr>
       <td><%= @quotation.name %></td>
       <td><%= @quotation.budget %></td>
-      <td><%= @quotation.width %></td>
-      <td><%= @quotation.length %></td>
+      <td><%= @quotation.floor_width %></td>
+      <td><%= @quotation.floor_length %></td>
     </tr>
   </tbody>
 </table>

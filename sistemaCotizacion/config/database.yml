@@ -24,7 +24,7 @@ default: &default
 
 development:
   <<: *default
-  database: quotations_system
+  database: quotations_test
   username: corona
   password: corona
 
@@ -60,7 +60,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: quotations_system
+  database: quotations_test
   username: corona
   password: corona
 
@@ -85,6 +85,6 @@ test:
 #
 production:
   <<: *default
-  database: quotations_system
+  database: quotations_test
   username: corona
   password: <%= ENV['QUOTATION_SYSTEM_DATABASE_PASSWORD'] %>
