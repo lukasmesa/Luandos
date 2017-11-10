@@ -6,6 +6,7 @@ class CreateProducts < ActiveRecord::Migration[5.1]
       t.integer :value
       t.references :material_type, foreign_key: true
       t.references :construction_type, foreign_key: true
+      t.references :product_line, foreign_key: true
 
       t.timestamps
     end

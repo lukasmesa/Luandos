@@ -1,7 +1,7 @@
 
         <div class="container" >
-    					<div class="row">
-    						<div class="col-md-4">
+              <div class="row">
+                <div class="col-md-4">
                   <div class="card border-primary mb-3" style="max-width: 20rem;">
                     <div class="card-header text-primary border-primary">Medidas para la construcci&oacute;n</div>
                     <div class="card-body text-primary">
@@ -21,7 +21,7 @@
                       <div class="container">
                         <div class="row input-group">
                           <span class="input-group-addon text-primary">$</span>
-                          <%= form.text_field :budget, class: "form-control", 'aria-label': "Amount (to the nearest dollar)", id:"budget"%>
+                          <%= form.text_field :budget, class: "form-control", placeholder: "Ingrese su presupuesto", id:"budget"%>
                         </div>
                       </div>
                   </div>
@@ -35,16 +35,16 @@
                       </div>
                     </div>
                   </div>
-                  <div class="card-footer bg-transparent border-primary"><%= form.label :serviceInstall, 'Estado de la obra', class: "form-check-label text-primary", id:"labelService" %>
+                  <div class="card-footer bg-transparent border-primary"><%= form.label :projectState, 'Estado de la obra', class: "form-check-label text-primary", id:"labelEstadoObra" %>
                     <div class="container">
                       <br>
                       <div class="row">
                         <%= form.label :labelNegra, 'Obra Negra', class: "form-check-label col text-primary", id:"labelObraNegra" %>
-                        <%= form.check_box :obraNegra, class: "form-check-input col", id:"obraNegra"%></label>
+                        <%= form.radio_button :project_status, "Obra Negra", class: "form-check-input col", id:"obraNegra"%></label>
                       </div>
                       <div class="row">
-                        <%= form.label :labelBlanca, 'Obra Blanca', class: "form-check-label col col text-primary", id:"labelObraBlanca" %>
-                        <%= form.check_box :obraBlanca, class: "form-check-input col", id:"obraBlanca"%>
+                        <%= form.label :labelBlanca, 'Obra Blanca', class: "form-check-label col text-primary", id:"labelObraBlanca" %>
+                        <%= form.radio_button :project_status, "Obra Blanca", class: "form-check-input col", id:"obraBlanca"%>
                       </div>
                     </div>
                   </div>
@@ -64,12 +64,12 @@
                     <div class="container">
                     <br>
                     <div class="row input-group">
-                      <%= form.label :labelWidth, 'Ancho', class: "col-4 input-group-addon text-primary", id:"labelWidth" %>
-                      <%= form.text_field :width, class: "col-8 form-control", id:"width"%>
+                      <%= form.label :labelLength, 'Largo', class: "col-4 input-group-addon text-primary", id:"labelLength" %>
+                      <%= form.text_field :floor_length, class: "col-8 form-control", placeholder: "Medida en metros", id:"length"%>
                     </div>
                     <div class="row input-group">
-                      <%= form.label :labelLength, 'Largo', class: "col-4 input-group-addon text-primary", id:"labelLength" %>
-                      <%= form.text_field :length, class: "col-8 form-control", id:"length"%>
+                      <%= form.label :labelWidth, 'Ancho', class: "col-4 input-group-addon text-primary", id:"labelWidth" %>
+                      <%= form.text_field :floor_width, class: "form-control col-8 ", placeholder: "Medida en metros", id:"width"%>
                     </div>
                     </div>
                   </div>
@@ -78,12 +78,12 @@
                     <div class="container">
                     <br>
                     <div class="row input-group">
-                      <%= form.label :labelWidth, 'Ancho', class: "col-4 input-group-addon text-primary", id:"labelWidth" %>
-                      <%= form.text_field :widthPared, class: "col-8 form-control", id:"widthPared"%>
+                      <%= form.label :labelHeight, 'Alto', class: "col-4 input-group-addon text-primary", id:"labelWidth" %>
+                      <%= form.text_field :wall_height, class: "col-8 form-control", placeholder: "Medida en metros", id:"widthPared"%>
                     </div>
                     <div class="row input-group">
-                      <%= form.label :labelLength, 'Largo', class: "col-4 input-group-addon text-primary", id:"labelLength" %>
-                      <%= form.text_field :lengthPared, class: "col-8 form-control", id:"lengthPared"%>
+                      <%= form.label :labelWidth, 'Ancho', class: "col-4 input-group-addon text-primary", id:"labelLength" %>
+                      <%= form.text_field :wall_width, class: "col-8 form-control", placeholder: "Medida en metros", id:"lengthPared"%>
                     </div>
                     </div>
                   </div>
@@ -96,13 +96,13 @@
                         <%= form.check_box :igualPiso, class: "form-check-input col", id:"igualPiso"%>
                       </div>
                       <br>
-                      <div class="row input-group" id="rowWidthTecho">
-                        <%= form.label :labelWidth, 'Ancho', class: "col-4 input-group-addon text-primary", id:"labelWidth" %>
-                        <%= form.text_field :widthTecho, class: "col-8 form-control", id:"widthTecho"%>
-                      </div>
                       <div class="row input-group" id="rowLengthTecho">
                         <%= form.label :labelLength, 'Largo', class: "col-4 input-group-addon text-primary", id:"labelLength" %>
-                        <%= form.text_field :lengthTecho, class: "col-8 form-control", id:"lengthTecho" %>
+                        <%= form.text_field :lengthTecho, class: "col-8 form-control", placeholder: "Medida en metros", id:"lengthTecho" %>
+                      </div>
+                      <div class="row input-group" id="rowWidthTecho">
+                        <%= form.label :labelWidth, 'Ancho', class: "col-4 input-group-addon text-primary", id:"labelWidth" %>
+                        <%= form.text_field :widthTecho, class: "col-8 form-control", placeholder: "Medida en metros", id:"widthTecho"%>
                       </div>
                     </div>
                   </div>

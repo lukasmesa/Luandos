@@ -1,11 +1,11 @@
-$("#budget").val("")
-$("#width").val("")
-$("#length").val("")
-$("#widthPared").val("")
-$("#lengthPared").val("")
-$("#widthTecho").val("")
-$("#lengthTecho").val("")
-$("input:checkbox").removeAttr("checked");
-$("#service").removeAttr("checked");
+$("#budget").val("");
+$("#width").val("");
+$("#length").val("");
+$("#widthPared").val("");
+$("#lengthPared").val("");
+$("#widthTecho").val("");
+$("#lengthTecho").val("");
+$("input:checkbox").prop("checked", false);
+$("input:radio").prop("checked", false);
 $("#contenidoCotizacion").html("<%= j render(partial: 'create') %>");
 

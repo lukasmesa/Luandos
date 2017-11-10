@@ -35,6 +35,10 @@ gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 # Use jquery
 gem 'jquery-rails'
+# Use jquery-ui
+gem 'jquery-ui-rails'
+# Use jquery validation
+gem 'jquery-validation-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
