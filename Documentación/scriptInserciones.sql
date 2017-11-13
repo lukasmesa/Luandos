@@ -152,9 +152,9 @@ INSERT INTO activities(name, description, quantity, unit_value, value_meter, act
 
 
 INSERT INTO activities(name, description, quantity, unit_value, value_meter, activity_type_id, construction_type_id, created_at, updated_at) VALUES
-    ('ASEO', UPPER('M/O Aseo general de obra inlcuye (materiales de aseo)'), 1, 50000, 1, 8, 1, now(), now());
+    ('ASEO', UPPER('M/O Aseo general de obra inlcuye (materiales de aseo)'), 1, 50000, 10000, 8, 1, now(), now());
 INSERT INTO activities(name, description, quantity, unit_value, value_meter, activity_type_id, construction_type_id, created_at, updated_at) VALUES
-    ('ESCOMBROS', UPPER('S/I Recogida de Escombros en Lona (Incluye trasciego vertical/horizontal.)'), 5, 5000, 1, 8, 1, now(), now());
+    ('ESCOMBROS', UPPER('S/I Recogida de Escombros en Lona (Incluye trasciego vertical/horizontal.)'), 5, 5000, 3500, 8, 1, now(), now());
 END
 $$
 --HASTA AQUÍ SON LAS INSERCIONES DE LAS ACTIVIDADES PARA BAÑO
@@ -300,42 +300,52 @@ INSERT INTO material_types(name, created_at, updated_at) VALUES('CEMENTO',now(),
 INSERT INTO material_types(name, created_at, updated_at) VALUES('CAUCHO',now(), now());
 INSERT INTO material_types(name, created_at, updated_at) VALUES('FIBRA DE CARBONO',now(), now());
 
+INSERT INTO product_lines(name, min_value, max_value, created_at, updated_at) VALUES
+    (UPPER('basica'), 0, 5000000, now(), now());
+INSERT INTO product_lines(name, min_value, max_value, created_at, updated_at) VALUES
+    (UPPER('estandar'), 5000000, 10000000, now(), now());
+INSERT INTO product_lines(name, min_value, max_value, created_at, updated_at) VALUES
+    (UPPER('plus'), 10000000, 20000000, now(), now());
+INSERT INTO product_lines(name, min_value, max_value, created_at, updated_at) VALUES
+    (UPPER('premium'), 20000000, 150000000, now(), now());
 
-INSERT INTO products(name, description, value, material_type_id, construction_type_id, created_at, updated_at) VALUES
-    (UPPER('Baño premium'),UPPER('Baño ahorrador de agua'),50000, 1, 1,now(), now());
-INSERT INTO products(name, description, value, material_type_id, construction_type_id, created_at, updated_at) VALUES
-    (UPPER('Lavamanos'),UPPER('color azul oscuro'),72028, 2, 1,now(), now());
-INSERT INTO products(name, description, value, material_type_id, construction_type_id, created_at, updated_at) VALUES
-    (UPPER('Ducha'),UPPER('plateada'),17283, 7, 1,now(), now());
-INSERT INTO products(name, description, value, material_type_id, construction_type_id, created_at, updated_at) VALUES
-    (UPPER('Baño sencillo'),UPPER('baño general'),17378, 10, 1,now(), now());
-INSERT INTO products(name, description, value, material_type_id, construction_type_id, created_at, updated_at) VALUES
-    (UPPER('Baño de lujo'),UPPER('Con lavado'),76273, 11, 1,now(), now());
-INSERT INTO products(name, description, value, material_type_id, construction_type_id, created_at, updated_at) VALUES
-    (UPPER('Tina'),UPPER('sencilla balnac'),78880, 14, 1,now(), now());
-INSERT INTO products(name, description, value, material_type_id, construction_type_id, created_at, updated_at) VALUES
-    (UPPER('Combo accesorios'),UPPER('jabonera,toallera,cepillos'),67554, 10, 1,now(), now());
-INSERT INTO products(name, description, value, material_type_id, construction_type_id, created_at, updated_at) VALUES
-    (UPPER('Mueble lavamanos'),UPPER('color miel'),59876, 11, 1,now(), now());
-INSERT INTO products(name, description, value, material_type_id, construction_type_id, created_at, updated_at) VALUES
-    (UPPER('Espejo'),UPPER('espejo cuerpo entero'),572839, 13, 1,now(), now());
-INSERT INTO products(name, description, value, material_type_id, construction_type_id, created_at, updated_at) VALUES
-    (UPPER('Lavamanos caribe'),UPPER('lavamanos niños'),87332, 5, 1,now(), now());
-INSERT INTO products(name, description, value, material_type_id, construction_type_id, created_at, updated_at) VALUES
-    (UPPER('Tina gold'),UPPER('tina hidromasaje termica'),9000, 6, 1,now(), now());
-INSERT INTO products(name, description, value, material_type_id, construction_type_id, created_at, updated_at) VALUES
-    (UPPER('Griferia'),UPPER('griferia de alto impacto'),23000, 8, 1,now(), now());
-INSERT INTO products(name, description, value, material_type_id, construction_type_id, created_at, updated_at) VALUES
-    (UPPER('Bañera hidromasaje'),UPPER('control temperatura'),57990, 3, 1,now(), now());
-INSERT INTO products(name, description, value, material_type_id, construction_type_id, created_at, updated_at) VALUES
-    (UPPER('Sanitario sencillo'),UPPER('sanitario servicio general'),16279, 9, 1,now(), now());
-INSERT INTO products(name, description, value, material_type_id, construction_type_id, created_at, updated_at) VALUES
-    (UPPER('Jabonera lujo'),UPPER('jabonera antirayones'),15276, 10, 1,now(), now());
-INSERT INTO products(name, description, value, material_type_id, construction_type_id, created_at, updated_at) VALUES
-    (UPPER('Baldosa clara'),UPPER('baldosa de 10x20'),57899, 1, 1,now(), now());
-INSERT INTO products(name, description, value, material_type_id, construction_type_id, created_at, updated_at) VALUES
-    (UPPER('Ceramica rumana'),UPPER('ceramica rustica'),45677, 4, 1,now(), now());
-INSERT INTO products(name, description, value, material_type_id, construction_type_id, created_at, updated_at) VALUES
-    (UPPER('Cielo razo'),UPPER('cielo termico'),98643, 5, 1,now(), now());
+INSERT INTO products(name, description, value, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('Baño premium'),UPPER('Baño ahorrador de agua'),50000, 1, 1, 1, now(), now());
+INSERT INTO products(name, description, value, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('Lavamanos'),UPPER('color azul oscuro'),72028, 2, 1, 2, now(), now());
+INSERT INTO products(name, description, value, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('Ducha'),UPPER('plateada'),17283, 7, 1, 1, now(), now());
+INSERT INTO products(name, description, value, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('Baño sencillo'),UPPER('baño general'),17378, 10, 1, 1, now(), now());
+INSERT INTO products(name, description, value, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('Baño de lujo'),UPPER('Con lavado'),76273, 11, 1, 3, now(), now());
+INSERT INTO products(name, description, value, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('Tina'),UPPER('sencilla balnac'),78880, 14, 1, 3, now(), now());
+INSERT INTO products(name, description, value, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('Combo accesorios'),UPPER('jabonera,toallera,cepillos'),67554, 10, 1, 2, now(), now());
+INSERT INTO products(name, description, value, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('Mueble lavamanos'),UPPER('color miel'),59876, 11, 1, 2, now(), now());
+INSERT INTO products(name, description, value, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('Espejo'),UPPER('espejo cuerpo entero'),572839, 13, 1, 3, now(), now());
+INSERT INTO products(name, description, value, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('Lavamanos caribe'),UPPER('lavamanos niños'),87332, 5, 1, 1, now(), now());
+INSERT INTO products(name, description, value, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('Tina gold'),UPPER('tina hidromasaje termica'),9000, 6, 1, 4, now(), now());
+INSERT INTO products(name, description, value, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('Griferia'),UPPER('griferia de alto impacto'),23000, 8, 1, 2, now(), now());
+INSERT INTO products(name, description, value, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('Bañera hidromasaje'),UPPER('control temperatura'),57990, 3, 1, 2, now(), now());
+INSERT INTO products(name, description, value, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('Torre de ducha premium'),UPPER('control temperatura, 4 duchas extra'),1200000, 3, 1, 4, now(), now());
+INSERT INTO products(name, description, value, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('Sanitario sencillo'),UPPER('sanitario servicio general'),16279, 9, 1, 2, now(), now());
+INSERT INTO products(name, description, value, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('Jabonera lujo'),UPPER('jabonera antirayones'),15276, 10, 1, 3, now(), now());
+INSERT INTO products(name, description, value, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('Baldosa clara'),UPPER('baldosa de 10x20'),57899, 1, 1, 2, now(), now());
+INSERT INTO products(name, description, value, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('Ceramica rumana'),UPPER('ceramica rustica'),45677, 4, 1, 4, now(), now());
+INSERT INTO products(name, description, value, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('Cielo razo'),UPPER('cielo termico'),98643, 5, 1, 1, now(), now());
 END
 $$
