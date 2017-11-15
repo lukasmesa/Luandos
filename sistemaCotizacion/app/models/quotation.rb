@@ -18,4 +18,8 @@ class Quotation < ApplicationRecord
     (self.floor_width*self.floor_length)
   end
 
+  def getBudget
+    ActionController::Base.helpers.number_to_currency(self.budget, precision: 0, delimiter: ".")
+  end
+
 end
