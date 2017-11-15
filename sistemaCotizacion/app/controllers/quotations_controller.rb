@@ -36,6 +36,6 @@ end
 
 private
   def quotation_params
-    params.require(:quotation).permit(:name, :width, :length, :budget)
+    params.require(:quotation).permit(:name, :floor_length, :floor_width, :wall_height, :wall_width, :budget, :project_status)
   end
 end
