@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(version: 20171012212032) do
     t.string "name", limit: 50
     t.string "description", limit: 200
     t.integer "value"
+    t.string "image", limit: 100
     t.bigint "material_type_id"
     t.bigint "construction_type_id"
     t.bigint "product_line_id"
