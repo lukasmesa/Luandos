@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   get 'index/index'
 
+  root 'index#index'
+
   resources :quotations, shallow: true do
     resources :clients
     resources :advisers
@@ -29,6 +31,6 @@ Rails.application.routes.draw do
    resources :quotations
   end
 
-  root 'index#index'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
