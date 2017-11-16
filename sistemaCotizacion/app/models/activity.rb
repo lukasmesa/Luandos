@@ -11,7 +11,7 @@ class Activity < ApplicationRecord
   validates :value_meter, numericality: { only_integer: true }, presence: true
 
   def totalValue(meters)
-    ActionController::Base.helpers.number_to_currency((self.value_meter*meters).ceil, precision: 0, delimiter: ".")
+    total = ActionController::Base.helpers.number_to_currency((self.value_meter*meters).ceil, precision: 0, delimiter: ".")
   end
 
 end
