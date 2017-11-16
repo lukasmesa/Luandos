@@ -47,6 +47,11 @@ class QuotationsController < ApplicationController
     end
   end
 
+  def updateProducts
+
+
+  end
+
   def findActivities(construction_type)
     if params.dig(:quotation, :project_status).eql?("Obra Negra")
       activities = Activity.where("construction_type_id = :construction_type AND activity_type_id <> :activity_type",{construction_type: construction_type, activity_type: 2})
