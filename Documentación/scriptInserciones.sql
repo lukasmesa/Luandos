@@ -294,43 +294,203 @@ INSERT INTO product_lines(name, min_value, max_value, created_at, updated_at) VA
 INSERT INTO product_lines(name, min_value, max_value, created_at, updated_at) VALUES
     (UPPER('premium'), 20000000, 150000000, now(), now());
 
+
+
+
+
+
 INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
-    (UPPER('Baño premium'),UPPER('Baño ahorrador de agua'),50000, 'bañoPremium.jpg', 1, 1, 1, now(), now());
+    (UPPER('Sanitario premium'),UPPER('Baño ahorrador de agua'),50000, 'sanitario1.jpg', 1, 1, 1, now(), now());
 INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
-    (UPPER('Lavamanos'),UPPER('color azul oscuro'),72028, 'lavamanos.jpg', 2, 1, 2, now(), now());
+    (UPPER('Lavamanos premium'),UPPER('lavamanos antirayones'),50000, 'lavamanos1.jpg', 2, 1, 1, now(), now());
 INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
-    (UPPER('Ducha'),UPPER('plateada'),17283, 'ducha.jpg', 7, 1, 1, now(), now());
+    (UPPER('griferia plana'),UPPER('plateada'),20000, 'griferiabaño1.jpg', 2, 1, 1, now(), now());
 INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
-    (UPPER('Baño sencillo'),UPPER('baño general'),17378, 'bañoSencillo.jpg', 10, 1, 1, now(), now());
+    (UPPER('baldosa ocio'),UPPER('baldosa piso liso'),17283, 'baldosa1.jpg',6, 1, 1, now(), now());
+
+
+
 INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
-    (UPPER('Baño de lujo'),UPPER('Con lavado'),76273, 'bañoLujo.jpg', 11, 1, 3, now(), now());
+    (UPPER('Sanitario estelar'),UPPER('Baño con dos tanques'),80000, 'sanitario2.jpg', 2, 1, 1, now(), now());
 INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
-    (UPPER('Tina'),UPPER('sencilla balnac'),78880, 'tina.jpg', 14, 1, 3, now(), now());
+    (UPPER('Lavamanos rosa'),UPPER('lavamanos sin mueble'),150000, 'lavamanos7.jpg', 14, 1, 3, now(), now());
 INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
-    (UPPER('Combo accesorios'),UPPER('jabonera,toallera,cepillos'),67554, 'comboAccesorios.jpg', 10, 1, 2, now(), now());
+    (UPPER('griferia plateada'),UPPER('oro'),20000, 'griferiabaño2.jpg', 2, 1, 1, now(), now());
 INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
-    (UPPER('Mueble lavamanos'),UPPER('color miel'),59876, 'muebleLavamanos.jpg', 11, 1, 2, now(), now());
+    (UPPER('baldosa cuacho'),UPPER('baldosa aspera'),20000, 'baldosa2.jpg',6, 1, 1, now(), now());
+
+
 INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
-    (UPPER('Espejo'),UPPER('espejo cuerpo entero'),572839, 'espejo.jpg', 13, 1, 3, now(), now());
+    (UPPER('Sanitario carnaval'),UPPER('Baño brillo extremo'),100000, 'sanitario3.jpg', 4, 1, 2, now(), now());
 INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
-    (UPPER('Lavamanos caribe'),UPPER('lavamanos niños'),87332, 'lavamanosCaribe.jpg', 5, 1, 1, now(), now());
+    (UPPER('Lavamanos platino'),UPPER('lavamanos bajito'),72028, 'lavamanos2.jpg', 3, 1, 1, now(), now());
 INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
-    (UPPER('Tina gold'),UPPER('tina hidromasaje termica'),9000, 'tinaGold.jpg', 6, 1, 4, now(), now());
+    (UPPER('griferia platinum'),UPPER('blanca'),20000, 'griferiabaño3.jpg', 7, 1, 1, now(), now());
 INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
-    (UPPER('Griferia'),UPPER('griferia de alto impacto'),23000, 'griferia.jpg', 8, 1, 2, now(), now());
+    (UPPER('baldosa rola'),UPPER('baldosa oscura'),20000, 'baldosa3.jpg',6, 1, 1, now(), now());
+
+
 INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
-    (UPPER('Bañera hidromasaje'),UPPER('control temperatura'),57990, 'hidromasaje.jpg', 3, 1, 2, now(), now());
+    (UPPER('Sanitario elRey'),UPPER('Baño garantia de por vida'),120000, 'sanitario4.jpg', 1, 1, 2, now(), now());
 INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
-    (UPPER('Torre de ducha premium'),UPPER('control temperatura, 4 duchas extra'),1200000, 'torreDucha.jpg', 3, 1, 4, now(), now());
+    (UPPER('Lavamanos sencillo'),UPPER('lavamanos oscuro'),80000, 'lavamanos3.jpg', 7, 1, 1, now(), now());
 INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
-    (UPPER('Sanitario sencillo'),UPPER('sanitario servicio general'),16279, 'sanitarioSencillo.jpg', 9, 1, 2, now(), now());
+    (UPPER('griferia carlota'),UPPER('combinable'),45000, 'griferiabaño4.jpg', 3, 1, 2, now(), now());
 INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
-    (UPPER('Jabonera lujo'),UPPER('jabonera antirayones'),15276, 'jaboneraLujo.jpg', 10, 1, 3, now(), now());
+    (UPPER('baldosa calidad'),UPPER('baldosa fina'),45000, 'baldosa4.jpg',6, 1, 2, now(), now());
+
+
 INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
-    (UPPER('Baldosa clara'),UPPER('baldosa de 10x20'),57899, 'baldosaClara.jpg', 1, 1, 2, now(), now());
+    (UPPER('Sanitario pequeño'),UPPER('Baño para niños'),150000, 'sanitario5.jpg', 7, 1, 2, now(), now());
 INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
-    (UPPER('Ceramica rumana'),UPPER('ceramica rustica'),45677, 'ceramicaRumana.jpg', 4, 1, 4, now(), now());
+    (UPPER('Lavamanos fama'),UPPER('lavamanos garantia de por vida'),100000, 'lavamanos4.jpg', 8, 1, 2, now(), now());
 INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
-    (UPPER('Cielo razo'),UPPER('cielo termico'),98643, 'cieloRazo.jpg', 5, 1, 1, now(), now());
+    (UPPER('griferia perla'),UPPER('completa'),50000, 'griferiabaño5.jpg', 11, 1, 2, now(), now());
+INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('baldosa calidad'),UPPER('baldosa fina'),45000, 'baldosa4.jpg',6, 1, 2, now(), now());
+
+
+INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('Sanitario lujo'),UPPER('Baño con control temperatura'),150000, 'sanitario6.jpg', 10, 1, 2, now(), now());
+INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('Lavamanos alpha'),UPPER('lavamanos con pedestal'),120000, 'lavamanos5.jpg', 11, 1, 2, now(), now());
+INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('griferia perla'),UPPER('completa'),50000, 'griferiabaño5.jpg', 11, 1, 2, now(), now());
+INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('baldosa calidad'),UPPER('baldosa fina'),45000, 'baldosa4.jpg',6, 1, 2, now(), now());
+
+
+INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('Sanitario basico'),UPPER('Baño sencillo'),160000, 'sanitario7.jpg', 14, 1, 3, now(), now());
+INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('Lavamanos treselle'),UPPER('lavamanos claro'),150000, 'lavamanos6.jpg', 12, 1, 3, now(), now());
+INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('griferia carlota'),UPPER('combinable'),45000, 'griferiabaño4.jpg', 3, 1, 2, now(), now());
+INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('baldosa ocio'),UPPER('baldosa piso liso'),17283, 'baldosa1.jpg',6, 1, 1, now(), now());
+
+
+INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('Sanitario mendez'),UPPER('Baño estilo temporal'),160000, 'sanitario8.jpg', 12, 1, 3, now(), now());
+INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('Lavamanos palma'),UPPER('lavamanos cobertura metalica'),160000, 'lavamanos8.jpg', 2, 1, 3, now(), now());
+INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('griferia sundae'),UPPER('edicion limitada'),80000, 'griferiacocina1.jpg', 10, 2, 3, now(), now());
+INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('baldosa calidad'),UPPER('baldosa fina'),45000, 'baldosa4.jpg',6, 1, 2, now(), now());
+
+
+INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('Sanitario hogar'),UPPER('Baño resistente a rayones'),160000, 'sanitario9.jpg', 11, 1, 3, now(), now());
+INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('Lavamanos victoria'),UPPER('lavamanos piedra'),200000, 'lavamanos10.jpg', 1, 1, 4, now(), now());
+INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('griferia paris'),UPPER('multiusos'),125000, 'griferiacocina4.jpg', 1, 1, 4, now(), now());
+INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('baldosa rola'),UPPER('baldosa oscura'),20000, 'baldosa3.jpg',6, 1, 1, now(), now());
+
+
+
+INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('Sanitario ensueño'),UPPER('Baño con enjuague'),200000, 'sanitario10.jpg', 3, 1, 4, now(), now());
+INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('Lavamanos betha'),UPPER('lavamanos pintas'),200000, 'lavamanos9.jpg', 2, 1, 4, now(), now());
+INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('griferia champions'),UPPER('garantia dos años'),100000, 'griferiacocina2.jpg', 13, 1, 3, now(), now());
+INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('baldosa calidad'),UPPER('baldosa fina'),45000, 'baldosa4.jpg',6, 1, 2, now(), now());
+
+
+
+INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('gabinetecocina orion'),UPPER('gabinetecocina oscuro'),500000, 'gabinetecocina1.jpg', 2, 2, 1, now(), now());
+INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('griferia champions'),UPPER('garantia dos años'),100000, 'griferiacocina2.jpg', 13, 2, 3, now(), now());
+INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('lavaplatos premium'),UPPER('lavaplatos sin garantia'),90000, 'lavaplatos1.jpg', 1, 2, 1, now(), now());
+INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('baldosa agua'),UPPER('baldosa clara '),50000, 'baldosa5.jpg',6, 1, 2, now(), now());
+
+
+
+INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('gabinetecocina lujo'),UPPER('gabinetecocina claro'),800000, 'gabinetecocina2.jpg', 1, 2, 1, now(), now());
+INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('griferia champions'),UPPER('garantia dos años'),100000, 'griferiacocina2.jpg', 13, 2, 3, now(), now());
+
+
+
+INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('baldosa agua'),UPPER('baldosa clara '),50000, 'baldosa5.jpg',6, 1, 2, now(), now());
+
+
+
+
+
+INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('griferia osadia'),UPPER('instalacion'),105000, 'griferiacocina3.jpg',10, 2, 3, now(), now());
+INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('griferia paris'),UPPER('multiusos'),125000, 'griferiacocina4.jpg', 1, 2, 4, now(), now());
+INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('griferia porla'),UPPER('garantia de por vida'),160000, 'griferiacocina5.jpg', 2, 2, 4, now(), now());
+
+
+
+
+INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('gabinetecocina vida'),UPPER('gabinetecocina resistente'),950000, 'gabinetecocina3.jpg', 3, 2, 1, now(), now());
+INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('gabinetecocina cielo'),UPPER('gabinetecocina impermeable'),1000000, 'gabinetecocina4.jpg', 4, 2, 2, now(), now());
+INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('gabinetecocina epsilon'),UPPER('gabinetecocina garantia año'),1000000, 'gabinetecocina5.jpg', 6, 2, 2, now(), now());
+INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('gabinetecocina cuantum'),UPPER('gabinetecocina con puertas llave'),1500000, 'gabinetecocina6.jpg', 2, 2, 3, now(), now());
+INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('gabinetecocina gama'),UPPER('gabinetecocina secadora'),1650000, 'gabinetecocina7.jpg', 1, 2, 3, now(), now());
+INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('gabinetecocina furia'),UPPER('gabinetecocina extractor'),2000000, 'gabinetecocina8.jpg', 6, 2, 4, now(), now());
+INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('gabinetecocina relampago'),UPPER('gabinetecocina colorido'),2100000, 'gabinetecocina9.jpg', 9, 2, 4, now(), now());
+INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('gabinetecocina logica'),UPPER('gabinetecocina de por vida'),2500000, 'gabinetecocina10.jpg',10, 2, 4, now(), now());
+
+
+
+
+INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('lavaplatos latino'),UPPER('lavaplatos antioxidable'),100000, 'lavaplatos3.jpg', 5, 2, 2, now(), now());
+INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('lavaplatos occident'),UPPER('lavaplatos con garantia año'),110000, 'lavaplatos4.jpg', 2, 2, 2, now(), now());
+INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('lavaplatos gama'),UPPER('lavaplatos anti rayones'),110000, 'lavaplatos5.jpg', 6, 2, 2, now(), now());
+INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('lavaplatos luna'),UPPER('lavaplatos antigermenes'),150000, 'lavaplatos6.jpg', 10, 2, 3, now(), now());
+INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('lavaplatos cifuente'),UPPER('lavaplatos plateado'),170000, 'lavaplatos7.jpg', 7, 2, 3, now(), now());
+INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('lavaplatos ortodix'),UPPER('lavaplatos no machas'),177500, 'lavaplatos8.jpg', 9, 2, 3, now(), now());
+INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('lavaplatos galactico'),UPPER('lavaplatos simple'),200000, 'lavaplatos9.jpg', 10, 2, 4, now(), now());
+INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('lavaplatos corcho'),UPPER('lavaplatos lujoso'),200000, 'lavaplatos10.jpg', 11, 2, 4, now(), now());
+
+
+
+
+
+
+INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('baldosa agua'),UPPER('baldosa clara '),50000, 'baldosa5.jpg',6, 1, 2, now(), now());
+INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('baldosa medialuna'),UPPER('baldosa degrafilada'),100000, 'baldosa6.jpg',6, 2, 3, now(), now());
+INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('baldosa prisma'),UPPER('baldosa colorida'),100000, 'baldosa7.jpg',6, 2, 3, now(), now());
+INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('baldosa egipcia'),UPPER('baldosa cafeclara'),110000, 'baldosa8.jpg',6, 2, 3, now(), now());
+INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('baldosa rusa'),UPPER('baldosa rustica'),150000, 'baldosa9.jpg',6, 2, 4, now(), now());
+INSERT INTO products(name, description, value, image, material_type_id, construction_type_id, product_line_id, created_at, updated_at) VALUES
+    (UPPER('baldosa original'),UPPER('baldosa garantizada'),150000, 'baldosa10.jpg',6, 2, 4, now(), now());
+
 END
 $$
