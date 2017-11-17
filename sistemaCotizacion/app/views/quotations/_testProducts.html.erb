@@ -2,9 +2,13 @@
 <div class="col-md-4">
   <div class="card border-primary mb-3" style="max-width: 20rem;">
     <div class="card-header text-primary border-primary">Opci&oacute;n 1</div>
+    <%= form_for :selected, url: '/updateProducts', remote: true, id:"formProductos", class: "form-horizontal form-inline my-2 my-lg-0" do |form| %>
+    <%= form.fields_for :data do |data|%>
     <div class="card-body text-primary">
+      <div style="visibility: hidden"><%= form.text_field :quotation, value: @quotation.id%></div>
     <div class="row">
       <% @quotation.products[0..3].each do |product| %>
+      <div style="visibility: hidden"><%= data.text_field :product, 'name'=>["product"+product.id.to_s], value: product.id%></div>
       <div class="col-md-6">
         <%= link_to image_tag(product.image, class: 'rounded img-fluid', alt: 'proyecto base') %>
       </div>
@@ -13,23 +17,30 @@
       </div>
       <% end %>
     </div>
+    <% end %>
     <br>
     <div class="row">
-      <%= link_to 'Seleccionar Sugerencia', quotations_path(@quotation), method: :updateProducts, class: "btn btn-primary btn-block container-fluid"%>
+      <%= form.submit 'Seleccionar Sugerencia', class: "btn btn-primary btn-block container-fluid"%>
     </div>
   </div>
+  <% end %>
   </div>
 </div>
 <% end %>
+
 
 
 <% if @quotation.products.length >= 7 %>
 <div class="col-md-4">
   <div class="card border-primary mb-3" style="max-width: 20rem;">
     <div class="card-header text-primary border-primary">Opci&oacute;n 2</div>
+    <%= form_for :selected, url: '/updateProducts', remote: true, id:"formProductos", class: "form-horizontal form-inline my-2 my-lg-0" do |form| %>
+    <%= form.fields_for :data do |data|%>
     <div class="card-body text-primary">
+      <div style="visibility: hidden"><%= form.text_field :quotation, value: @quotation.id%></div>
     <div class="row">
       <% @quotation.products[4..7].each do |product| %>
+      <div style="visibility: hidden"><%= data.text_field :product, 'name'=>["product"+product.id.to_s], value: product.id%></div>
       <div class="col-md-6">
         <%= link_to image_tag(product.image, class: 'rounded img-fluid', alt: 'proyecto base') %>
       </div>
@@ -38,11 +49,13 @@
       </div>
       <% end %>
     </div>
+    <% end %>
     <br>
     <div class="row">
-      <%= link_to 'Seleccionar Sugerencia', quotations_path(@quotation), method: :updateProducts, class: "btn btn-primary btn-block container-fluid"%>
+      <%= form.submit 'Seleccionar Sugerencia', class: "btn btn-primary btn-block container-fluid"%>
     </div>
   </div>
+  <% end %>
   </div>
 </div>
 <% end %>
@@ -51,9 +64,13 @@
 <div class="col-md-4">
   <div class="card border-primary mb-3" style="max-width: 20rem;">
     <div class="card-header text-primary border-primary">Opci&oacute;n 3</div>
+    <%= form_for :selected, url: '/updateProducts', remote: true, id:"formProductos", class: "form-horizontal form-inline my-2 my-lg-0" do |form| %>
+    <%= form.fields_for :data do |data|%>
     <div class="card-body text-primary">
+      <div style="visibility: hidden"><%= form.text_field :quotation, value: @quotation.id%></div>
     <div class="row">
       <% @quotation.products[8..11].each do |product| %>
+      <div style="visibility: hidden"><%= data.text_field :product, 'name'=>["product"+product.id.to_s], value: product.id%></div>
       <div class="col-md-6">
         <%= link_to image_tag(product.image, class: 'rounded img-fluid', alt: 'proyecto base') %>
       </div>
@@ -62,11 +79,13 @@
       </div>
       <% end %>
     </div>
+    <% end %>
     <br>
     <div class="row">
-      <%= link_to 'Seleccionar Sugerencia', quotations_path(@quotation), method: :updateProducts, class: "btn btn-primary btn-block container-fluid"%>
+      <%= form.submit 'Seleccionar Sugerencia', class: "btn btn-primary btn-block container-fluid"%>
     </div>
   </div>
+  <% end %>
   </div>
 </div>
 <% end %>
