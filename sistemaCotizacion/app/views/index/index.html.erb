@@ -1,4 +1,30 @@
-
+        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="row">
+              <div class="col">
+                <nav aria-label="breadcrumb" role="navigation">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item">
+                    <span><%= link_to image_tag('LogoCorona.png', redirect_to: 'index_path', class: 'rounded img-fluid', alt: 'Logo Corona') %></span>
+                  </li>
+                </ol>
+                </nav>
+              </div>
+              </div>
+              <div class="row">
+               <p>
+               Cotizacion - A partir de un presupuesto dado, en esta seccion encontraras diferentes tipos de diseños para tu proyecto, podras visualizar los componentes de cada uno y elegir el que mas se acomoda a tu necesidad.
+               </p>
+              </div>
+              <br>
+              <div class="container">
+                <div class="row" id="containerSugerencias">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="container" >
               <div class="row">
                 <div class="col-md-4">
@@ -49,7 +75,7 @@
                     </div>
                   </div>
                   <div class="card-footer bg-transparent border-primary">
-                    <%= form.submit "Generar Cotización", class: "btn btn-primary btn-lg btn-block container-fluid" %>
+                    <%= form.submit "Generar Cotización", class: "btn btn-primary btn-lg btn-block container-fluid", 'data-toggle': "modal", 'data-target': ".bd-example-modal-lg" %>
                   </div>
                 </div>
               </div>
