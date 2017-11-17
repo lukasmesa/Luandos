@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   root 'index#index'
 
+  post '/updateProducts' => 'quotations#updateProducts'
+
   resources :quotations, shallow: true do
     resources :clients
     resources :advisers
