@@ -107,11 +107,20 @@
       <%= @quotation.getValueAllServices%>
     </td>
   </tr>
+  <% if @quotation.budget >= @quotation.totalValueQuotation(@quotation.totalMeters).to_i %>
     <tr class="table-info text-primary">
       <td colspan="3"><h2 class="text-center">Valor total cotizaci&oacute;n sugerida</h2></td>
       <td>
       <%= @quotation.getValueAllQuotation(@quotation.totalMeters)%>
-    </td>
+      </td>
     </tr>
+  <% elsif @quotation.budget <= @quotation.totalValueQuotation(@quotation.totalMeters).to_i%>
+  <tr class="table-danger text-primary">
+      <td colspan="3"><h2 class="text-center">Valor total cotizaci&oacute;n sugerida</h2></td>
+      <td>
+      <%= @quotation.getValueAllQuotation(@quotation.totalMeters)%>
+      </td>
+    </tr>
+  <% end %>
   </tbody>
 </table>
