@@ -34,6 +34,11 @@ class Quotation < ApplicationRecord
     return total
   end
 
+  def totalValueQuotation(quantity)
+    totalQuotation = totalValueServices + totalValueProducts(quantity)
+    return totalQuotation
+  end
+
   def getValueAllServices
     ActionController::Base.helpers.number_to_currency(totalValueServices, precision: 0, delimiter: ".")
   end
