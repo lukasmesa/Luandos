@@ -47,6 +47,26 @@ class QuotationsController < ApplicationController
     end
   end
 
+  def updateProducts
+    respond_to do |format|
+      format.html { redirect_to quotations_path }
+      format.js   {
+        Article.where("quotation_id = :quotation", quotation: params.dig(:selected, :quotation)).destroy_all
+        @quotation = Quotation.find(params.dig(:selected, :quotation))
+        keys = params.keys
+        keys.each do|key|
+          if key.include?("product")
+            value = params.values_at(key)
+            @newProduct = Product.find(value)
+            @newProduct.each do |pro|
+              @article = @quotation.articles.create(quotation_id: @quotation.id, product_id: pro.id, quantity: 1)
+            end
+          end
+        end
+      }
+    end
+  end
+
   def findActivities(construction_type)
     if params.dig(:quotation, :project_status).eql?("Obra Negra")
       activities = Activity.where("construction_type_id = :construction_type AND activity_type_id <> :activity_type",{construction_type: construction_type, activity_type: 2})

@@ -41,7 +41,7 @@
   </td>
 
   <td>
-    <%= product.getValue %>
+    <%= product.showValue(@quotation.totalMeters) %>
   </td>
 
   <td>
@@ -82,12 +82,36 @@
 </tr>
 <% end %>
 </tbody>
-<tfoot>
-  <tr class="table-info text-primary">
-    <td colspan="3"><h2 class="text-center">Valor total de los servicios</h2></td>
+</table>
+
+<table class="table table-hover table-responsive" id="tablaTotales">
+  <thead class="text-primary">
+    <tr>
+      <th colspan="4"><h2 class="text-center">cotizaci&oacute;n sugerida</h2></th>
+    </tr>
+    <tr class="text-primary">
+      <th>Elemento</th>
+      <th>Valor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="text-primary">
+    <td colspan="3"><h5 class="text-center">Valor total de los productos</h5></td>
     <td>
-      <%= @quotation.totalValueServices%>
+      <%= @quotation.getValueAllProducts(@quotation.totalMeters)%>
     </td>
   </tr>
-</tfoot>
+    <tr class="text-primary">
+    <td colspan="3"><h5 class="text-center">Valor total de los servicios</h5></td>
+    <td>
+      <%= @quotation.getValueAllServices%>
+    </td>
+  </tr>
+    <tr class="table-info text-primary">
+      <td colspan="3"><h2 class="text-center">Valor total cotizaci&oacute;n sugerida</h2></td>
+      <td>
+      <%= @quotation.getValueAllQuotation(@quotation.totalMeters)%>
+    </td>
+    </tr>
+  </tbody>
 </table>
