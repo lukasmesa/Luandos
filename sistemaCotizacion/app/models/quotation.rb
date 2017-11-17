@@ -26,26 +26,8 @@ class Quotation < ApplicationRecord
   def totalValueServices
     total = self.activities.map {|activity| activity['value_meter']}.reduce(:+)
     valueService = total*self.totalMeters
-    return valueService
-  end
-
-  def totalValueProducts(quantity)
-    total = self.products.map {|product| product.getValue(quantity)}.reduce(:+)
-    return total
-  end
-
-  def getValueAllServices
-    ActionController::Base.helpers.number_to_currency(totalValueServices, precision: 0, delimiter: ".")
-  end
-
-  def getValueAllProducts(quantity)
-    ActionController::Base.helpers.number_to_currency(totalValueProducts(quantity), precision: 0, delimiter: ".")
-  end
-
-  def getValueAllQuotation(quantity)
-    totalAll = totalValueServices + totalValueProducts(quantity)
-    all = ActionController::Base.helpers.number_to_currency(totalAll, precision: 0, delimiter: ".")
-    return all
+    totalServices = ActionController::Base.helpers.number_to_currency(valueService, precision: 0, delimiter: ".")
+    return totalServices
   end
 
 end

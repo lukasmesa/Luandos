@@ -10,16 +10,7 @@ class Product < ApplicationRecord
   validates :value, numericality: { only_integer: true }, presence: true
   validates :image, format: { with: /\A[A-Za-z0-9\/\\\.\,\:\s\-\_]+\p{Latin}+\z/, message: "El nombre solo puede contener letras, comas, puntos y guiones" }, length: { maximum: 200 }, presence: true
 
-  def showValue(quantity)
-    ActionController::Base.helpers.number_to_currency(self.getValue(quantity), precision: 0, delimiter: ".")
+  def getValue
+    ActionController::Base.helpers.number_to_currency(self.value, precision: 0, delimiter: ".")
   end
-
-  def getValue(quantity)
-    if self.name.include?("BALDOSA")
-      self.value*quantity
-    else
-      self.value*1
-    end
-  end
-
 end
