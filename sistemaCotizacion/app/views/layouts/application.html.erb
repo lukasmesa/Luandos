@@ -10,31 +10,102 @@
 
     <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">
-    <%= link_to image_tag('LogoCorona.png', :alt => 'Mostrar detalle de prospecto') %> </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"   aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
+    <span>
+    <%= link_to image_tag('LogoCorona.png', redirect_to: 'root_path', class: 'rounded img-fluid', alt: 'Logo Corona') %>
+    </span>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+          <%= link_to 'Inicio', root_path, class: "nav-link disabled"%>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Mas Sobre Nosotros</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Secciones</a>
+          <%= link_to 'Productos', products_path, class: "nav-link disabled"%>
         </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
-      </form>
     </div>
-
   </nav>
       <%= yield %>
     </body>
+    <footer>
+        <div class="container" >
+            <div class="row">
+             <div class="col-md-2" >
+                <p><small>Nuestros Productos
+                    <ul class="footer-link">
+                        <li><a href="http://www.corona.co/tu-solucion/productos/banos" title="Baños">Baños</a></li>
+                        <li><a href="http://www.corona.co/tu-solucion/productos/cocinas" title="Cocinas">Cocinas</a></li>
+                        <li><a href="http://www.corona.co/tu-solucion/productos/exteriores" title="Exteriores">Exteriores</a></li>
+                        <li><a href="http://www.corona.co/tu-solucion/productos/otras-areas" title="Otras Áreas">Otras Áreas</a></li>
+                        <li><a href="http://www.corona.co/tu-solucion/productos/materiales-de-construccion" title="Materiales">Materiales</a></li>
+                        <li><a href="http://www.corona.co/tu-solucion/productos/vajillas" title="Vajillas">Vajillas</a></li>
+                    </ul>
+                </small></p>
+            </div>
+            <div class="col-md-2" >
+                <p><small>Nuestra Empresa
+                    <ul class="footer-link">
+                        <li><a href="nuestra-empresa/quienes-somos/perfil-corporativo" title="Quienes Somos" >Qui&eacute;nes Somos</a></li>
+                        <li><a href="nuestra-empresa/corona-sostenible" title="Corona Sostenible">Corona Sostenible</a></li>
+                        <li><a href="nuestra-empresa/premio-corona" title="Premio Corona">Premio Corona Pro<br> H&aacute;bitat </a></li>
+                        <li><a href="nuestra-empresa/sala-de-prensa/comunicados" title="Sala de Prensa">Sala de Prensa</a></li>
+                        <li><a target="_blank" href="http://www.corona.co/empleo" title="Trabaja con Nosotros">Trabaja con Nosotros</a></li>
+                        <li><a href="nuestra-empresa/fundacion-corona" title="Fundación Corona">Fundación Corona</a></li>
+                    </ul>
+                </small></p>
+
+            </div>
+            <div class="col-md-2">
+               <p ><small>Zona Expertos
+                <ul class="footer-link">
+                    <li><a href="profesionales/arquitectos" title="Arquitectos">Arquitectos</a></li>
+                    <li><a href="profesionales/maestros" title="Maestros de obra">Maestros de obra</a></li>
+                    <li><a href="profesionales/disenadores-de-interiores" title="Dise&ntilde;adores de interiores">Dise&ntilde;adores de <br> interiores</a></li>
+                    <li><a href="profesionales/restauranteros" title="Restauranteros">Restauranteros</a></li>
+                    <li><a href="profesionales/almacenes" title="Hipercentro y Tienda Cer&aacute;mica">Hipercentro y Tienda <br> Cer&aacute;mica</a></li>
+                </ul>
+            </small></p>
+
+        </div>
+        <div class="col-md-2">
+         <p><small>BLOG
+            <ul class="footer-link">
+                <li><a href="blogs/estilo-para-la-mesa" title="Estilo para la Mesa">Estilo para la Mesa</a></li>
+                <li><a target="_blank" href="http://blogarquitectura.corona.co" title="Arquitectura">Arquitectura</a></li>
+            </ul>
+        </small></p>
+    </div>
+
+    <div class="col-md-2">
+     <p><small>Actualidad Corona
+        <ul class="footer-link">
+            <li><a href="articulos" title="Art&iacute;culos de tu Inter&eacute;s">Art&iacute;culos de tu Inter&eacute;s</a></li>
+            <li><a href="articulos/videos" title="Galería de Videos">Galería de Videos</a></li>
+            <li><a href="catalogos" title="Catálogos Corona">Catálogos Corona</a></li>
+            <li><a href="proveedores" title="Proveedores Corona">Proveedores Corona</a></li>
+            <li><a href="garantias" title="Garantía Corona">Garantía Corona</a></li>
+            <li><a href="https://unoauno.corona.co/login" target="_blank" title="Nuestros Clientes (uno a uno)">Nuestros Clientes<br> (uno a uno)</a></li>
+        </ul>
+    </small></p>
+
+</div>
+<div class="col-md-2">
+ <p><small>Novedades
+    <ul class="footer-link">
+        <li><a href="lanzamientos-y-promos" title="Conoce todas nuestras novedades">Conoce todas<br> nuestras novedades</a></li>
+        <li><a href="blogs/estilo-para-la-mesa" title="Estilo para la Mesa">Estilo para la Mesa</a></li>
+    </ul>
+</small></p>
+</div>
+<div class="col-md-2" >
+    <p><small>&iquest;D&Oacute;NDE COMPRAR?
+        <ul class="footer-link">
+            <li ><a href="donde-comprar" title="Encuentra el punto m&aacute;s cercano">Encuentra el punto<br> m&aacute;s cercano</a></li>
+        </ul>
+    </small></p>
+</div>
+</div>
+</div>
+
+
+</footer>
   </html>

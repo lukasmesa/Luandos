@@ -79,24 +79,39 @@ ActiveRecord::Schema.define(version: 20171012212032) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "product_lines", force: :cascade do |t|
+    t.string "name", limit: 50
+    t.integer "min_value"
+    t.integer "max_value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "name", limit: 50
     t.string "description", limit: 200
+    t.integer "value"
+    t.string "image", limit: 100
     t.bigint "material_type_id"
     t.bigint "construction_type_id"
+    t.bigint "product_line_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["construction_type_id"], name: "index_products_on_construction_type_id"
     t.index ["material_type_id"], name: "index_products_on_material_type_id"
+    t.index ["product_line_id"], name: "index_products_on_product_line_id"
   end
 
   create_table "quotations", force: :cascade do |t|
     t.string "name", limit: 50
-    t.integer "width"
-    t.integer "length"
-    t.bigint "client_id"
-    t.bigint "adviser_id"
-    t.date "date"
+    t.decimal "floor_length", precision: 4, scale: 2
+    t.decimal "floor_width", precision: 4, scale: 2
+    t.decimal "wall_height", precision: 4, scale: 2
+    t.decimal "wall_width", precision: 4, scale: 2
+    t.integer "budget", default: 0
+    t.string "project_status", limit: 11
+    t.bigint "client_id", default: 1
+    t.bigint "adviser_id", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["adviser_id"], name: "index_quotations_on_adviser_id"
@@ -106,7 +121,6 @@ ActiveRecord::Schema.define(version: 20171012212032) do
   create_table "services", force: :cascade do |t|
     t.bigint "quotation_id"
     t.bigint "activity_id"
-    t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["activity_id"], name: "index_services_on_activity_id"
@@ -119,6 +133,7 @@ ActiveRecord::Schema.define(version: 20171012212032) do
   add_foreign_key "articles", "quotations"
   add_foreign_key "products", "construction_types"
   add_foreign_key "products", "material_types"
+  add_foreign_key "products", "product_lines"
   add_foreign_key "quotations", "advisers"
   add_foreign_key "quotations", "clients"
   add_foreign_key "services", "activities"

@@ -1,0 +1,61 @@
+<nav aria-label="breadcrumb" role="navigation">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to 'Corona', root_path%></li>
+    <li class="breadcrumb-item active" aria-current="page">Productos</li>
+  </ol>
+</nav>
+<div >
+
+  <div class="row">
+
+    <div class="col-sm-4">
+      <div class="card border-primary mb-3" style="max-width: 40rem;">
+        <div class="card-header text-center text-primary">
+        <h1 >PRODUCTOS</h1>
+        </div>
+        <div class="card-body">
+          <div class="card-text">
+            <ul class="list-group">
+            <li class="list-group-item">SANITARIOS CON LAVAMANOS DE PEDESTAL</li>
+            <li class="list-group-item">SANITARIOS CON LAVAMANOS DE COLGAR</li>
+            <li class="list-group-item">SANITARIOS CON LAVAMANOS SEMIPEDESTAL</li>
+          </ul>
+          </div>
+
+        </div>
+
+
+      </div>
+
+  </div>
+
+  <div class="col-sm-1"></div>
+
+  <div class="row">
+    <div class="col-sm">
+      <div class="card border-primary mb-3" style="max-width: 80rem;">
+        <div class="card-text">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Descripci&oacute;n</th>
+            <th scope="col">Valor</th>
+          </tr>
+        </thead>
+  <tbody>
+     <% @products.each do |product| %>
+    <tr>
+      <td ><%= product.name %></td>
+      <td ><%= product.description %></td>
+      <td ><%= product.value %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>

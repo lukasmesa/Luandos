@@ -1,0 +1,14 @@
+$("#budget").val("");
+$("#width").val("");
+$("#length").val("");
+$("#widthPared").val("");
+$("#lengthPared").val("");
+$("#widthTecho").val("");
+$("#lengthTecho").val("");
+$("input:checkbox").prop("checked", false);
+$("input:radio").prop("checked", false);
+$("#rowLengthTecho").show();
+$("#rowWidthTecho").show();
+$("#containerSugerencias").empty();
+$("#containerSugerencias").html("<%= j render(partial: 'testProducts') %>");
+

@@ -1,0 +1,137 @@
+<table class="table table-hover table-responsive" id="tablaCotizacion">
+  <thead>
+    <tr>
+      <th class="border-0" colspan="4"><h1 class="text-center text-primary">Cotizaci&oacute;n</h1></th>
+    </tr>
+    <tr class="text-primary">
+      <th>Tipo Proyecto</th>
+      <th>Presupuesto</th>
+      <th>Largo</th>
+      <th>Ancho</th>
+    </tr>
+  </thead>
+  <tbody class="text-primary">
+    <tr class="table-info">
+      <td><%= @quotation.name %></td>
+      <td><%= @quotation.getBudget %></td>
+      <td><%= @quotation.floor_length %></td>
+      <td><%= @quotation.floor_width %></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 class="text-center text-primary">Productos</h2>
+
+<table class="table table-hover table-responsive" id="tablaProductos">
+  <thead>
+    <tr class="text-primary">
+      <th>Id</th>
+      <th>Nombre</th>
+      <th>Valor</th>
+      <th>L&iacute;nea</th>
+    </tr>
+  </thead>
+  <tbody class="text-primary">
+<% @quotation.products.each do |product| %>
+<tr>
+  <td><%= product.id %></td>
+
+  <td>
+    <%= product.name %>
+  </td>
+
+  <td>
+    <%= product.showValue(@quotation.totalMeters) %>
+  </td>
+
+  <td>
+    <%= product.product_line.name %>
+  </td>
+</tr>
+<% end %>
+</tbody>
+</table>
+
+<h2 class="text-center text-primary">Servicios de instalaci&oacute;n</h2>
+<div id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="card">
+    <div class="card-header" role="tab" id="headingOne">
+      <h5 class="mb-0">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseServicios" aria-expanded="false" aria-controls="collapseServicios">
+          Ver detalles de los servicios de instalaci&oacute;n
+        </a>
+      </h5>
+    </div>
+    <div id="collapseServicios" class="collapse" role="tabpanel" aria-labelledby="headingOne">
+      <div class="card-block">
+        <table class="table table-hover table-responsive" id="tablaServicios">
+        <thead>
+          <tr class="text-primary">
+            <th>Nombre</th>
+            <th>Tipo de servicio</th>
+            <th>Costo</th>
+          </tr>
+        </thead>
+        <tbody class="text-primary">
+          <% @quotation.activities.each do |activity| %>
+          <tr>
+            <td>
+              <%= activity.name %>
+            </td>
+            <td>
+              <%= activity.activity_type.name %>
+            </td>
+            <td>
+              <%= activity.totalValue(@quotation.totalMeters)%>
+            </td>
+            <td>
+              <%= link_to "Más Información", activity_path(id: activity.id), remote: true, class: "btn btn-primary btn-block", 'data-toggle': "modal", 'data-target': "#modalDetalles"%>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  </div>
+</div>
+<table class="table table-hover table-responsive" id="tablaTotales">
+  <thead class="text-primary">
+    <tr>
+      <th colspan="4"><h2 class="text-center">cotizaci&oacute;n sugerida</h2></th>
+    </tr>
+    <tr class="text-primary">
+      <th>Elemento</th>
+      <th>Valor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="text-primary">
+    <td colspan="3"><h5 class="text-center">Valor total de los productos</h5></td>
+    <td>
+      <%= @quotation.getValueAllProducts(@quotation.totalMeters)%>
+    </td>
+  </tr>
+    <tr class="text-primary">
+    <td colspan="3"><h5 class="text-center">Valor total de los servicios</h5></td>
+    <td>
+      <%= @quotation.getValueAllServices%>
+    </td>
+  </tr>
+  <% if @quotation.budget >= @quotation.totalValueQuotation(@quotation.totalMeters).to_i %>
+    <tr class="table-info text-primary">
+      <td colspan="3"><h2 class="text-center">Valor total cotizaci&oacute;n sugerida</h2></td>
+      <td>
+      <%= @quotation.getValueAllQuotation(@quotation.totalMeters)%>
+      </td>
+    </tr>
+  <% elsif @quotation.budget <= @quotation.totalValueQuotation(@quotation.totalMeters).to_i%>
+  <tr class="table-danger text-primary">
+      <td colspan="3"><h2 class="text-center">Valor total cotizaci&oacute;n sugerida</h2></td>
+      <td>
+      <%= @quotation.getValueAllQuotation(@quotation.totalMeters)%>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
