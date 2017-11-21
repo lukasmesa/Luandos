@@ -1,15 +1,13 @@
 <nav aria-label="breadcrumb" role="navigation">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><%= link_to 'Corona', index_index_path%></li>
+    <li class="breadcrumb-item"><%= link_to 'Corona', root_path%></li>
     <li class="breadcrumb-item active" aria-current="page">Productos</li>
   </ol>
 </nav>
 <div >
 
   <div class="row">
-<div class="col-sm-1">
 
-</div>
     <div class="col-sm-4">
       <div class="card border-primary mb-3" style="max-width: 40rem;">
         <div class="card-header text-center text-primary">
@@ -48,12 +46,12 @@
   <tbody>
      <% @products.each do |product| %>
     <tr>
-      <td><%= product.name %></td>
-      <td><%= product.description %></td>
-      <td><%= product.value %></td>
+      <td ><%= product.name %></td>
+      <td ><%= product.description %></td>
+      <td ><%= product.value %></td>
     </tr>
+    <% end %>
   </tbody>
-  <% end %>
 </table>
     </div>
   </div>
