@@ -1,8 +1,0 @@
-<%# /app/views/things/show.js.erb %>
-if ($("#targetNumber").text() == "now you see ME!") {
-  $("#targetNumber").html("<%= j render(partial: 'show') %>");
-} else{
-  $("#targetNumber").empty();
-  $("#targetNumber").append("now you see ME!");
-}
-
