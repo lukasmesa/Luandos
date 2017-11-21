@@ -25,6 +25,7 @@ class QuotationsController < ApplicationController
                           @service = @quotation.services.create(quotation_id: @quotation.id, activity_id: activity.id)
                         end
                         if params.dig(:quotation, :budget).to_i >= @line.min_value and params.dig(:quotation, :budget).to_i < @line.max_value
+                        @products = Product.where("product_line_id = :line_id AND construction_type_id = 1",line_id: @line.id).order('id desc')
                           @products.each do |product|
                             @article = @quotation.articles.create(quotation_id: @quotation.id, product_id: product.id, quantity: 1)
                           end
@@ -35,6 +36,7 @@ class QuotationsController < ApplicationController
                           @service = @quotation.services.create(quotation_id: @quotation.id, activity_id: activity.id)
                         end
                         if params.dig(:quotation, :budget).to_i >= @line.min_value and params.dig(:quotation, :budget).to_i < @line.max_value
+                        @products = Product.where("product_line_id = :line_id AND construction_type_id = 2",line_id: @line.id).order('id desc')
                           @products.each do |product|
                             @article = @quotation.articles.create(quotation_id: @quotation.id, product_id: product.id, quantity: 1)
                           end
@@ -67,8 +69,10 @@ class QuotationsController < ApplicationController
 
   def findActivities(construction_type)
     if params.dig(:quotation, :project_status).eql?("Obra Negra")
+      activities = Activity.where("construction_type_id = :construction_type AND activity_type_id <> :activity_type",{construction_type: construction_type, activity_type: 2}).order('id desc')
       return activities
     elsif params.dig(:quotation, :project_status).eql?("Obra Blanca")
+      activities = Activity.where(construction_type_id: construction_type).order('id desc')
       return activities
     end
   end
