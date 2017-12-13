@@ -3,7 +3,7 @@
             <div class="modal-content">
               <div class="modal-header">
                 <span><%= image_tag('LogoCorona.png', class: 'rounded img-fluid', alt: 'Logo Corona') %></span>
-                <h5 class="modal-title text-primary text-center" id="modalTitle">Sugerencias de cotizaci&oacute;n</h5>
+                <h5 class="modal-title text-primary text-center" id="modalTitleSugerencias">Sugerencias de cotizaci&oacute;n</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -21,7 +21,7 @@
             <div class="modal-content">
               <div class="modal-header">
                 <span><%= image_tag('LogoCorona.png', class: 'rounded img-fluid', alt: 'Logo Corona') %></span>
-                <h5 class="modal-title text-primary text-center" id="modalTitle">Detalles Servicio</h5>
+                <h5 class="modal-title text-primary text-center" id="modalTitleDetalles">Detalles Servicio</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -29,6 +29,27 @@
               <br>
               <div class="modal-body">
                 <div class="row m-x-auto" id="containerDetalles">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal fade bd-example-modal-lg" id="modalDatosUsuario" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header border-primary">
+                <span><%= image_tag('LogoCorona.png', class: 'rounded img-fluid', alt: 'Logo Corona') %></span>
+                <h5 class="modal-title text-primary text-center" id="modalTitleUsuario">Datos Del Usuario</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <br>
+              <div class="modal-body">
+                <div class="row" id="containerDatosUsuario">
+
+                </div>
+              </div>
                 </div>
               </div>
             </div>

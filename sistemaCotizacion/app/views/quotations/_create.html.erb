@@ -3,6 +3,18 @@
     <tr>
       <th class="border-0" colspan="4"><h1 class="text-center text-primary">Cotizaci&oacute;n</h1></th>
     </tr>
+    <% if @quotation.client_id != 1 %>
+    <tr class="text-primary">
+      <th colspan="2">Nombre</th>
+      <th>Correo Electr&oacute;nico</th>
+      <th>Tel&eacute;fono</th>
+    </tr>
+    <tr class="table-info text-primary">
+      <td colspan="2"><%= @quotation.client.first_name + " " + @quotation.client.first_surname%></td>
+      <td><%= @quotation.client.email%></td>
+      <td><%= @quotation.client.phone%></td>
+    </tr>
+    <% end %>
     <tr class="text-primary">
       <th>Tipo Proyecto</th>
       <th>Presupuesto</th>
@@ -95,6 +107,8 @@
   </div>
   </div>
 </div>
+
+
 <table class="table table-hover table-responsive" id="tablaTotales">
   <thead class="text-primary">
     <tr>
@@ -135,3 +149,8 @@
   <% end %>
   </tbody>
 </table>
+
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-6"> <%= link_to "Datos Cliente", quotations_path(id: @quotation.id), remote: true, class: "btn btn-primary btn-lg btn-block container-fluid", 'data-toggle': "modal", 'data-target': "#modalDatosUsuario"%></div>
+</div>

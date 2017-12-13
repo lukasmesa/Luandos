@@ -5,6 +5,10 @@ Rails.application.routes.draw do
 
   post '/updateProducts' => 'quotations#updateProducts'
 
+  post '/updateClient' => 'quotations#updateClient'
+
+  get '/clientData' => 'quotations#show'
+
   resources :quotations, shallow: true do
     resources :clients
     resources :advisers
