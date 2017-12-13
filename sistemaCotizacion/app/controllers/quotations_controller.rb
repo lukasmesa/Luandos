@@ -1,10 +1,22 @@
 class QuotationsController < ApplicationController
 
   def index
-    @quotations = Quotation.find(params[:client_id])
+    respond_to do |format|
+      format.html { redirect_to quotations_path }
+      format.js   {
+        @quotation = Quotation.find(params[:id])
+      }
+    end
+
   end
 
   def show
+    respond_to do |format|
+      format.html { redirect_to quotations_path }
+      format.js   {
+        @quotation = Quotation.find(params[:id])
+      }
+    end
   end
 
   def new
@@ -35,6 +47,22 @@ class QuotationsController < ApplicationController
                         @activities.each do |activity|
                           @service = @quotation.services.create(quotation_id: @quotation.id, activity_id: activity.id)
                         end
+                        if params.dig(:quotation, :budget).to_i >= @line.min_value and params.dig(:quotation, :budget).to_i < @line.max_value
+                        @products = Product.where("product_line_id = :line_id AND construction_type_id = 2",line_id: @line.id).order('id desc')
+                          @products.each do |product|
+                            @article = @quotation.articles.create(quotation_id: @quotation.id, product_id: product.id, quantity: 1)
+                          end
+                        end
+                      end
+                    else
+                      if params.dig(:quotation, :name).eql?("Baño")
+                        if params.dig(:quotation, :budget).to_i >= @line.min_value and params.dig(:quotation, :budget).to_i < @line.max_value
+                        @products = Product.where("product_line_id = :line_id AND construction_type_id = 1",line_id: @line.id).order('id desc')
+                          @products.each do |product|
+                            @article = @quotation.articles.create(quotation_id: @quotation.id, product_id: product.id, quantity: 1)
+                          end
+                        end
+                      elsif params.dig(:quotation, :name).eql?("Cocina")
                         if params.dig(:quotation, :budget).to_i >= @line.min_value and params.dig(:quotation, :budget).to_i < @line.max_value
                         @products = Product.where("product_line_id = :line_id AND construction_type_id = 2",line_id: @line.id).order('id desc')
                           @products.each do |product|
@@ -83,6 +111,20 @@ class QuotationsController < ApplicationController
       if params.dig(:quotation, :budget).to_i >= line.min_value and params.dig(:quotation, :budget).to_i < line.max_value
         return line
       end
+    end
+  end
+
+  def updateClient
+    respond_to do |format|
+      format.html { redirect_to quotations_path }
+      format.js   {
+        @quotation = Quotation.find(params.dig(:client, :quotation))
+        if @quotation.client_id == 1
+          @client = @quotation.create_client(first_name: params.dig(:client, :first_name), middle_name: params.dig(:client, :middle_name), first_surname: params.dig(:client, :first_surname), second_surname: params.dig(:client, :second_surname), email: params.dig(:client, :email), phone: params.dig(:client, :phone))
+          @client.save!
+          @quotation.update(client_id: @client.id)
+        end
+      }
     end
   end
 

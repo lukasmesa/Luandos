@@ -1,0 +1,42 @@
+<div class="card col-md-12">
+  <div class="card-block">
+    <%= form_for :client, url: '/updateClient', remote: true, id:"formUsuario", class: "form-horizontal form-inline my-2 my-lg-0" do |form| %>
+    <div style="visibility: hidden"><%= form.text_field :quotation, value: @quotation.id%></div>
+    <div class="row">
+      <div class="col-md-1"></div>
+      <%= form.label :primerNombre, 'Primer Nombre:', class: "col-md-4 text-primary text-center", id:"labelPrimerNombre" %>
+      <%= form.text_field :first_name , class: "form-control col-md-5 col-md-5", placeholder: "Ingrese su nombre", id:"first_name"%>
+    </div>
+    <div class="row">
+      <div class="col-md-1"></div>
+      <%= form.label :segundoNombre, 'Segundo Nombre:', class: "col-md-4 text-primary text-center", id:"labelSegundoNombre" %>
+      <%= form.text_field :middle_name , class: "form-control col-md-5", placeholder: "Sí tiene un segundo nombre, ingréselo", id:"middle_name"%>
+    </div>
+    <div class="row">
+      <div class="col-md-1"></div>
+      <%= form.label :primerApellido, 'Primer Apellido:', class: "col-md-4 text-primary text-center", id:"labelPrimerApellido" %>
+      <%= form.text_field :first_surname , class: "form-control col-md-5", placeholder: "Ingrese su primer apellido", id:"first_surname"%>
+    </div>
+    <div class="row">
+      <div class="col-md-1"></div>
+      <%= form.label :segundoApellido, 'Segundo Apellido:', class: "col-md-4 text-primary text-center", id:"labelSegundoApellido" %>
+      <%= form.text_field :second_surname , class: "form-control col-md-5", placeholder: "Ingrese su segundo apellido", id:"Second_surname"%>
+    </div>
+    <div class="row">
+      <div class="col-md-1"></div>
+      <%= form.label :correo, 'Correo:', class: "col-md-4 text-primary text-center", id:"labelCorreo" %>
+      <%= form.text_field :email , class: "form-control col-md-5", placeholder: "Ingrese su correo electrónico", id:"email"%>
+    </div>
+    <div class="row">
+      <div class="col-md-1"></div>
+      <%= form.label :telefono, 'Teléfono:', class: "col-md-4 text-primary text-center", id:"labelTelefono" %>
+      <%= form.text_field :phone , class: "form-control col-md-5", placeholder: "Ingrese su teléfono", id:"phone"%>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-6"><%= form.submit 'Guardar Datos De Usuario', class: "btn btn-primary text-center"%></div>
+    </div>
+    <% end %>
+  </div>
+</div>
