@@ -1,3 +1,8 @@
+=begin
+ * Modelo de la tabla MaterialType de la base de datos
+ * @author rails
+ * @version 14-10-2017
+=end
 class MaterialType < ApplicationRecord
   has_many :products
 

@@ -1,3 +1,8 @@
+=begin
+ * Modelo de la tabla Adviser de la base de datos
+ * @author rails
+ * @version 14-10-2017
+=end
 class Adviser < ApplicationRecord
   has_many :quotations
 
