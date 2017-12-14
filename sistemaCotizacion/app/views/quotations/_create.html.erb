@@ -3,6 +3,18 @@
     <tr>
       <th class="border-0" colspan="4"><h1 class="text-center text-primary">Cotizaci&oacute;n</h1></th>
     </tr>
+    <% if @quotation.client_id != 1 %>
+    <tr class="text-primary">
+      <th colspan="2">Nombre</th>
+      <th>Correo Electr&oacute;nico</th>
+      <th>Tel&eacute;fono</th>
+    </tr>
+    <tr class="table-info text-primary">
+      <td colspan="2"><%= @quotation.client.first_name + " " + @quotation.client.first_surname%></td>
+      <td><%= @quotation.client.email%></td>
+      <td><%= @quotation.client.phone%></td>
+    </tr>
+    <% end %>
     <tr class="text-primary">
       <th>Tipo Proyecto</th>
       <th>Presupuesto</th>
@@ -53,36 +65,49 @@
 </table>
 
 <h2 class="text-center text-primary">Servicios de instalaci&oacute;n</h2>
+<div id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="card">
+    <div class="card-header" role="tab" id="headingOne">
+      <h5 class="mb-0">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseServicios" aria-expanded="false" aria-controls="collapseServicios">
+          Ver detalles de los servicios de instalaci&oacute;n
+        </a>
+      </h5>
+    </div>
+    <div id="collapseServicios" class="collapse" role="tabpanel" aria-labelledby="headingOne">
+      <div class="card-block">
+        <table class="table table-hover table-responsive" id="tablaServicios">
+        <thead>
+          <tr class="text-primary">
+            <th>Nombre</th>
+            <th>Tipo de servicio</th>
+            <th>Costo</th>
+          </tr>
+        </thead>
+        <tbody class="text-primary">
+          <% @quotation.activities.each do |activity| %>
+          <tr>
+            <td>
+              <%= activity.name %>
+            </td>
+            <td>
+              <%= activity.activity_type.name %>
+            </td>
+            <td>
+              <%= activity.totalValue(@quotation.totalMeters)%>
+            </td>
+            <td>
+              <%= link_to "Más Información", activity_path(id: activity.id), remote: true, class: "btn btn-primary btn-block", 'data-toggle': "modal", 'data-target': "#modalDetalles"%>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  </div>
+</div>
 
-<table class="table table-hover table-responsive" id="tablaServicios">
-  <thead>
-    <tr class="text-primary">
-      <th>Id</th>
-      <th>Nombre</th>
-      <th>Descripci&oacute;n</th>
-      <th>Costo</th>
-    </tr>
-  </thead>
-  <tbody class="text-primary">
-<% @quotation.activities.each do |activity| %>
-<tr>
-  <td><%= activity.id %></td>
-
-  <td>
-    <%= activity.name %>
-  </td>
-
-  <td>
-    <%= activity.activity_type.name %>
-  </td>
-
-  <td>
-    <%= activity.totalValue(@quotation.totalMeters)%>
-  </td>
-</tr>
-<% end %>
-</tbody>
-</table>
 
 <table class="table table-hover table-responsive" id="tablaTotales">
   <thead class="text-primary">
@@ -124,3 +149,8 @@
   <% end %>
   </tbody>
 </table>
+
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-6"> <%= link_to "Datos Cliente", quotations_path(id: @quotation.id), remote: true, class: "btn btn-primary btn-lg btn-block container-fluid", 'data-toggle': "modal", 'data-target': "#modalDatosUsuario"%></div>
+</div>

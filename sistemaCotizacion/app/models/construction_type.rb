@@ -1,3 +1,8 @@
+=begin
+ * Modelo de la tabla ConstructionType de la base de datos
+ * @author rails
+ * @version 14-10-2017
+=end
 class ConstructionType < ApplicationRecord
   has_many :products
   has_many :services
