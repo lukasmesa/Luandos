@@ -43,47 +43,27 @@ class QuotationsController < ApplicationController
                     @line = findLine
                     if params.dig(:quotation, :service).to_i == 1
                       if params.dig(:quotation, :name).eql?("Baño")
-                        @activities = findActivities(1)
+                        @activities = findActivities(1, params.dig(:quotation, :project_status))
                         @activities.each do |activity|
                           @service = @quotation.services.create(quotation_id: @quotation.id, activity_id: activity.id)
                         end
-                        if params.dig(:quotation, :budget).to_i >= @line.min_value and params.dig(:quotation, :budget).to_i < @line.max_value
-                        @products = Product.where("product_line_id = :line_id AND construction_type_id = 1",line_id: @line.id).order('id desc')
-                          @products.each do |product|
-                            @article = @quotation.articles.create(quotation_id: @quotation.id, product_id: product.id, quantity: 1)
-                          end
-                        end
+                        findProducts(@quotation,params.dig(:quotation, :budget).to_i, 1)
                       elsif params.dig(:quotation, :name).eql?("Cocina")
-                        @activities = findActivities(2)
+                        @activities = findActivities(2, params.dig(:quotation, :project_status))
                         @activities.each do |activity|
                           @service = @quotation.services.create(quotation_id: @quotation.id, activity_id: activity.id)
                         end
-                        if params.dig(:quotation, :budget).to_i >= @line.min_value and params.dig(:quotation, :budget).to_i < @line.max_value
-                        @products = Product.where("product_line_id = :line_id AND construction_type_id = 2",line_id: @line.id).order('id desc')
-                          @products.each do |product|
-                            @article = @quotation.articles.create(quotation_id: @quotation.id, product_id: product.id, quantity: 1)
-                          end
-                        end
+                        findProducts(@quotation,params.dig(:quotation, :budget).to_i, 2)
                       end
                     else
                       if params.dig(:quotation, :name).eql?("Baño")
-                        if params.dig(:quotation, :budget).to_i >= @line.min_value and params.dig(:quotation, :budget).to_i < @line.max_value
-                        @products = Product.where("product_line_id = :line_id AND construction_type_id = 1",line_id: @line.id).order('id desc')
-                          @products.each do |product|
-                            @article = @quotation.articles.create(quotation_id: @quotation.id, product_id: product.id, quantity: 1)
-                          end
-                        end
+                        findProducts(@quotation,params.dig(:quotation, :budget).to_i, 1)
                       elsif params.dig(:quotation, :name).eql?("Cocina")
-                        if params.dig(:quotation, :budget).to_i >= @line.min_value and params.dig(:quotation, :budget).to_i < @line.max_value
-                        @products = Product.where("product_line_id = :line_id AND construction_type_id = 2",line_id: @line.id).order('id desc')
-                          @products.each do |product|
-                            @article = @quotation.articles.create(quotation_id: @quotation.id, product_id: product.id, quantity: 1)
-                          end
-                        end
+                        findProducts(@quotation,params.dig(:quotation, :budget).to_i, 1)
                       end
                     end
                   }
-    end
+                end
   end
 
 =begin
@@ -117,14 +97,24 @@ class QuotationsController < ApplicationController
  * @param params todos los datos ingresados por el usuario para crear la cotización
  * @return  la cotización completa con los productos y servicios que desea el cliente
 =end
-  def findActivities(construction_type)
-    if params.dig(:quotation, :project_status).eql?("Obra Negra")
+  def findActivities(construction_type, project_status)
+    if project_status.eql?("Obra Negra")
       activities = Activity.where("construction_type_id = :construction_type AND activity_type_id <> :activity_type",{construction_type: construction_type, activity_type: 2}).order('id desc')
       return activities
-    elsif params.dig(:quotation, :project_status).eql?("Obra Blanca")
+    elsif project_status.eql?("Obra Blanca")
       activities = Activity.where(construction_type_id: construction_type).order('id desc')
       return activities
     end
+  end
+
+  def findProducts(quotation, budget, construction_type)
+    if budget >= @line.min_value and budget < @line.max_value
+    @products = Product.where("product_line_id = :line_id AND construction_type_id = :construction_type", construction_type: construction_type,line_id: @line.id).order('id desc')
+      @products.each do |product|
+        @article = quotation.articles.create(quotation_id: quotation.id, product_id: product.id, quantity: 1)
+      end
+    end
+    return @article
   end
 
 =begin
@@ -158,6 +148,51 @@ class QuotationsController < ApplicationController
         end
       }
     end
+  end
+
+  def createFromProducts
+    respond_to do |format|
+      format.html { redirect_to quotations_path }
+      format.js   {
+        @quotation = createQuotation(params)
+        @quotation.save!
+        keys = params.keys
+        keys.each do|key|
+          if key.include?("product")
+            value = params.values_at(key)
+            @newProduct = Product.find(value)
+            @newProduct.each do |pro|
+              @article = @quotation.articles.create(quotation_id: @quotation.id, product_id: pro.id, quantity: 1)
+            end
+          end
+        end
+        if params.dig(:selected, :service).to_i == 1
+          if params.dig(:selected, :name).eql?("Baño")
+            @activities = findActivities(1, params.dig(:selected, :project_status))
+            @activities.each do |activity|
+              @service = @quotation.services.create(quotation_id: @quotation.id, activity_id: activity.id)
+            end
+          elsif params.dig(:selected, :name).eql?("Cocina")
+            @activities = findActivities(2, params.dig(:selected, :project_status))
+            @activities.each do |activity|
+              @service = @quotation.services.create(quotation_id: @quotation.id, activity_id: activity.id)
+            end
+          end
+        end
+      }
+    end
+  end
+
+  def createQuotation(params)
+    @quotation = Quotation.new
+    @quotation.name = params.dig(:selected, :name)
+    @quotation.budget = params.dig(:selected, :budget)
+    @quotation.floor_length = params.dig(:selected, :floor_length)
+    @quotation.floor_width = params.dig(:selected, :floor_width)
+    @quotation.wall_height = params.dig(:selected, :wall_height)
+    @quotation.wall_width = params.dig(:selected, :wall_width)
+    @quotation.project_status = params.dig(:selected, :project_status)
+    return @quotation
   end
 
 =begin

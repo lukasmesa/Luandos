@@ -1,43 +1,37 @@
+<div class="modal fade bd-example-modal-lg" id="modalProductos" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span><%= image_tag('LogoCorona.png', class: 'rounded img-fluid', alt: 'Logo Corona') %></span>
+        <h5 class="modal-title text-primary text-center" id="modalTitleProductos">Elementos seleccionados para cotizaci&oacute;n</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <br>
+      <div class="modal-body">
+        <div class="row" id="containerProductos">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <nav aria-label="breadcrumb" role="navigation">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><%= link_to 'Corona', root_path%></li>
     <li class="breadcrumb-item active" aria-current="page">Productos</li>
   </ol>
 </nav>
-<div >
-
-  <div class="row">
-
-    <div class="col-sm-4">
-      <div class="card border-primary mb-3" style="max-width: 40rem;">
-        <div class="card-header text-center text-primary">
-        <h1 >PRODUCTOS</h1>
-        </div>
-        <div class="card-body">
-          <div class="card-text">
-            <ul class="list-group">
-            <li class="list-group-item">SANITARIOS CON LAVAMANOS DE PEDESTAL</li>
-            <li class="list-group-item">SANITARIOS CON LAVAMANOS DE COLGAR</li>
-            <li class="list-group-item">SANITARIOS CON LAVAMANOS SEMIPEDESTAL</li>
-          </ul>
-          </div>
-
-        </div>
-
-
-      </div>
-
-  </div>
-
-  <div class="col-sm-1"></div>
-
-  <div class="row">
-    <div class="col-sm">
-      <div class="card border-primary mb-3" style="max-width: 80rem;">
+  <div class="container">
+    <div class="row justify-content-center" id="containerViewProducts">
+      <div class="card border-primary w-100" >
         <div class="card-text">
+  <%= form_tag '/findProductsById', remote: true, id:"formProductosCotizacion", class: "form-horizontal form-inline my-2 my-lg-0" do%>
       <table class="table">
         <thead class="thead-dark">
           <tr>
+            <th scope="col">Seleccionar</th>
+            <th scope="col">Imagen</th>
             <th scope="col">Nombre</th>
             <th scope="col">Descripci&oacute;n</th>
             <th scope="col">Valor</th>
@@ -46,6 +40,9 @@
   <tbody>
      <% @products.each do |product| %>
     <tr>
+      <td>
+        <%= check_box_tag "products[id][]", product.id, false, class: "form-check-input col"%>
+      </td>
       <td ><%= image_tag(product.image, class: 'rounded mx-auto d-block', alt: 'proyecto base', 'data-toggle':"popover", title: product.name, 'data-content': product.description, style: "width: 200px; height: 200px;") %></td>
       <td ><%= product.name %></td>
       <td ><%= product.description %></td>
@@ -54,9 +51,9 @@
     <% end %>
   </tbody>
 </table>
+<%= submit_tag "Elementos seleccionados", class: "btn btn-primary btn-lg btn-block container-fluid", 'data-toggle': "modal", 'data-target': "#modalProductos" %>
+  <% end %>
     </div>
   </div>
 </div>
-</div>
-</div>
-</div>
+  </div>

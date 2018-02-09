@@ -1,0 +1,70 @@
+<div class="col-md-12">
+<%= form_for :selected, url: '/createFromProducts', remote: true, id:"formProductos", class: "form-horizontal form-inline my-2 my-lg-0" do |form| %>
+  <div class="row">
+    <% @products.each do |product| %>
+  <div class="card border-primary w-25 text-center">
+    <div class="card-header text-primary border-primary font-weight-bold"><%= product.name %></div>
+    <div class="card-body text-primary">
+      <div style="visibility: hidden"><%= form.text_field  :product, 'name'=>["product"+product.id.to_s], value: product.id%></div>
+      <div>
+        <%= image_tag(product.image, class: 'rounded img-fluid', alt: 'proyecto base', 'data-toggle':"popover", title: product.name, 'data-content': product.description) %>
+      </div>
+  </div>
+  </div>
+  <% end %>
+  </div>
+  <br>
+  <div class="modal-footer">
+    <table class="col-md-12">
+      <tbody>
+        <tr>
+          <td colspan="2" class="text-primary text-center">Tipo De Construcci&oacute;n</td>
+          <td><%= form.select :name, options_for_select([['Baño', 'Baño'], ['Cocina','Cocina']]), {}, {:class => 'custom-select text-primary'} %></td>
+        </tr>
+        <tr>
+          <td><div style="visibility: hidden"><%= form.text_field :budget, value: "0".to_i%></div></td>
+        </tr>
+        <tr>
+          <th colspan="3" class="text-primary text-center">Dimensiones Del Piso</th>
+        </tr>
+        <tr>
+          <td colspan="2" class="text-primary text-center">Largo</td>
+          <td><%= form.text_field :floor_length, class: "form-control", placeholder: "Medida en metros", id:"length"%></td>
+        </tr>
+        <tr>
+          <td colspan="2" class="text-primary text-center">Ancho</td>
+          <td><%= form.text_field :floor_width, class: "form-control", placeholder: "Medida en metros", id:"width"%></td>
+        </tr>
+        <tr>
+          <th colspan="3" class="text-primary text-center">Dimensiones De La Pared</th>
+        </tr>
+        <tr>
+          <td colspan="2" class="text-primary text-center">Alto</td>
+          <td><%= form.text_field :wall_height, class: "form-control", placeholder: "Medida en metros", id:"widthPared"%></td>
+        </tr>
+        <tr>
+          <td colspan="2" class="text-primary text-center">Ancho</td>
+          <td><%= form.text_field :wall_width, class: "form-control", placeholder: "Medida en metros", id:"lengthPared"%></td>
+        </tr>
+        <tr>
+          <td colspan="2" class="text-primary text-center">¿Desea incluir los servicios de instalaci&oacute;n?</td>
+          <td><%= form.check_box :service, id:"service"%></td>
+        </tr>
+        <tr>
+          <td rowspan="2" class="text-primary text-center">Estado de la obra</td>
+          <td class="text-primary text-center">Obra Negra</td>
+          <td><%= form.radio_button :project_status, "Obra Negra"%></td>
+        </tr>
+        <tr>
+          <td class="text-primary text-center">Obra Blanca</td>
+          <td><%= form.radio_button :project_status, "Obra Blanca"%></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+  <div class="modal-footer">
+      <%= form.submit 'Generar Cotización', class: "btn btn-primary btn-lg btn-block container-fluid"%>
+  </div>
+<% end %>
+</div>

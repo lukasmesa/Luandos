@@ -7,7 +7,11 @@ Rails.application.routes.draw do
 
   post '/updateClient' => 'quotations#updateClient'
 
+  post '/findProductsById' => 'products#findProductsById'
+
   get '/clientData' => 'quotations#show'
+
+  post '/createFromProducts' => 'quotations#createFromProducts'
 
   resources :quotations, shallow: true do
     resources :clients
