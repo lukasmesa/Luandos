@@ -150,6 +150,13 @@ class QuotationsController < ApplicationController
     end
   end
 
+=begin
+ * Crea la cotización con los productos seleccionados por el cliente
+ * y los datos que proporciona
+ * @param params Todos los datos necesarios para generar la cotización,
+ * dimensiones, productos seleccioados, entre otros
+ * @return la cotización generada
+=end
   def createFromProducts
     respond_to do |format|
       format.html { redirect_to quotations_path }
@@ -183,6 +190,11 @@ class QuotationsController < ApplicationController
     end
   end
 
+=begin
+ * Crea el objeto contización con unos parámetros definidos
+ * @param nombre, presupesto, dimensiones, estado de la obra
+ * @return la cotización creada
+=end
   def createQuotation(params)
     @quotation = Quotation.new
     @quotation.name = params.dig(:selected, :name)

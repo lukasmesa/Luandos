@@ -31,8 +31,4 @@ class ProductsController < ApplicationController
     end
   end
 
-  def createQuotation
-    redirect_to quotations_path
-  end
-
 end
