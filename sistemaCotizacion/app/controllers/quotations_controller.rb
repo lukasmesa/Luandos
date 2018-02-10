@@ -8,7 +8,6 @@ class QuotationsController < ApplicationController
 
 =begin
  * Obtiene la cotización con el id que llega por parámetro y redirecciona para su visualización
- * @param params arreglo con los parámetros enviados por el ususario
  * @return  la cotización que va a ser mostrada al cliente
 =end
   def index
@@ -30,7 +29,6 @@ class QuotationsController < ApplicationController
 
 =begin
  * Crea una nueva cotización con los parámetros dados por el usuario
- * @param params arreglo con los parámetros enviados por el ususario
  * @return  la cotización creada con los parámetros del cliente, los productos disponibles para su proyecto de acuerdo a su presupuesto
  * y los servicios de instalación que requiere según su proyecto
 =end
@@ -62,7 +60,6 @@ class QuotationsController < ApplicationController
 
 =begin
  * Asigna los productos seleccionados por el cliente a su cotización
- * @param params arreglo con los productos elegidos por el usuario
  * @return  la cotización completa con los productos y servicios que desea el cliente
 =end
   def updateProducts
@@ -79,8 +76,9 @@ class QuotationsController < ApplicationController
 =begin
  * Obtiene las servicios de instalación dependiendo del estado y el tipo de la obra
  * @param construction_type que construcción se quiere realizar o modificar
- * @param params todos los datos ingresados por el usuario para crear la cotización
- * @return  la cotización completa con los productos y servicios que desea el cliente
+ * @param quotation cotización a la cual se le van a añadir los servicios
+ * @param project_status el estado de la obra permite seleccionar los servicios pertientes
+ * @return  la cotización con los servicios que desea el cliente
 =end
   def findActivities(quotation, construction_type, project_status)
     if project_status.eql?("Obra Negra")
@@ -94,6 +92,13 @@ class QuotationsController < ApplicationController
     return @service
   end
 
+=begin
+ * Encuentra los productos que se ajustan al presupuesto dado por el cliente
+ * @param quotation cotización a la cual se le van a añadir los productos
+ * @param budget monto dado por el cliente
+ * @param construction_type que construcción se quiere realizar o modificar
+ * @return  la cotización con los productos que desea el cliente
+=end
   def findProductsBudget(quotation, budget, construction_type)
     if budget >= @line.min_value and budget < @line.max_value
     @products = Product.where("product_line_id = :line_id AND construction_type_id = :construction_type", construction_type: construction_type,line_id: @line.id).order('id desc')
@@ -106,7 +111,6 @@ class QuotationsController < ApplicationController
 
 =begin
  * Obtiene a que línea de productos se ajusta el presupuesto dado por el usuario
- * @param params todos los datos ingresados por el usuario para crear la cotización
  * @return la línea a la que el cliente puede acceder con base a su presupuesto
 =end
   def findLine
@@ -120,7 +124,6 @@ class QuotationsController < ApplicationController
 
 =begin
  * Actualiza los datos del cliente en la cotización
- * @param params todos los datos básicos del usuario
  * @return la cotización con la información del cliente actualizada
 =end
   def updateClient
@@ -140,8 +143,6 @@ class QuotationsController < ApplicationController
 =begin
  * Crea la cotización con los productos seleccionados por el cliente
  * y los datos que proporciona
- * @param params Todos los datos necesarios para generar la cotización,
- * dimensiones, productos seleccioados, entre otros
  * @return la cotización generada
 =end
   def createFromProducts
@@ -162,6 +163,12 @@ class QuotationsController < ApplicationController
     end
   end
 
+=begin
+ * Obtiene los productos seleccionados por el cliente y los añade a la cotización
+ * @param quotation cotización a la cual se le van a añadir los productos
+ * @param budget monto dado por el cliente
+ * @return la contización con los productos elegidos por el usuario
+=end
   def findProductsSelected(quotation, keys)
     keys.each do|key|
       if key.include?("product")
