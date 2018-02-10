@@ -19,7 +19,8 @@ class ProductsController < ApplicationController
   end
 
 =begin
- * Realiza la consulta de los productos seleccionados por el cliente para poder ser visualizados
+ * Realiza la consulta de los productos seleccionados por el cliente
+ * para poder ser visualizados
  * @return  un arreglo con todos los productos seleccionados
 =end
   def findProductsById
